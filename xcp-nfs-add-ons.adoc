@@ -1,0 +1,62 @@
+---
+sidebar: sidebar 
+permalink: xcp-nfs-add-ons.html 
+keywords: xcp, nfs, hdfs, connector, configure, security 
+summary: 'Les fonctionnalités d"extension XCP NFS prennent en charge l"utilisation de connecteurs POSIX et HDFS, améliorent la sécurité et prennent en charge l"utilisation d"une architecture scale-out pour accélérer les migrations de données.' 
+---
+= Fonctionnalités d'extension XCP NFS
+:allow-uri-read: 
+
+
+[role="lead"]
+Les fonctionnalités d'extension XCP NFS prennent en charge l'utilisation de connecteurs POSIX et HDFS, améliorent la sécurité et prennent en charge l'utilisation d'une architecture scale-out pour accélérer les migrations de données.
+
+
+
+== Prise en charge de NFSv4
+
+Lorsque vous n'activez NFSv4 que sur les volumes source, de destination et de catalogue dans le data Center, vous pouvez utiliser le chemin POSIX au lieu du chemin d'exportation pour migrer vos données. Pour utiliser le chemin POSIX, vous devez d'abord monter les volumes source, de destination et de catalogue sur le système hôte exécutant XCP, puis utiliser le chemin du fichier POSIX pour fournir la source et la destination à XCP. Voir link:xcp-configure-posix-connector-nfs.html["Configurez le connecteur POSIX"].
+
+[NOTE]
+====
+* Le support NFSv4 est limité au chemin POSIX et au `copy` fonctionnement, le `sync` l'opération n'est pas prise en charge.
+* Le connecteur POSIX peut être plus lent par rapport au moteur client de socket TCP XCP NFSv3.
+
+
+====
+
+
+== Connecteurs POSIX
+
+XCP 1.8 prend en charge l'utilisation de connecteurs POSIX pour fournir des chemins source, de destination et de catalogue pour la migration des données. Le connecteur POSIX (fichier://) permet à XCP d'accéder à tout système de fichiers monté sur Linux, tel que NFSv4, XFS et Veritas. Pour les utilisateurs non-racines, l'administrateur système peut monter le système de fichiers pour donner à tout utilisateur non-root la possibilité d'accéder au système de fichiers à l'aide d'un connecteur POSIX avec le préfixe file://.
+
+Vous pouvez bénéficier des connecteurs POSIX si vous ne disposez pas d'autorisations suffisantes pour monter le fichier ou lorsque le support disponible dans les data centers est limité à NFSv4. Dans ce cas, tout utilisateur root peut monter la source et la destination, puis accéder au chemin à l'aide d'un connecteur POSIX. Lorsque vous utilisez des connecteurs POSIX, vous ne pouvez exécuter que le `xcp copy` fonctionnement.
+
+
+
+== Sécurité XCP
+
+La fonctionnalité de sécurité XCP vous permet d'effectuer une migration en tant qu'utilisateur non root sur un ordinateur hôte Linux. Dans les versions XCP précédentes, en tant qu'utilisateur root sur la machine Linux, vous exécutez une migration avec toutes les autorisations pour les volumes source, de destination et de catalogue, et le montage est terminé par les opérations XCP.
+
+Lorsque vous préeffectuez des migrations de données, il est courant de désactiver la sécurité et de laisser un administrateur copier tout dans les meilleurs délais. Pour les transitions en cours dans les environnements de production où XCP a été utilisé pendant plusieurs années, il n'est pas sécurisé de s'exécuter en tant qu'administrateur (ou racine). Par conséquent, la suppression de l'exigence d'exécuter XCP comme utilisateur root vous donne la possibilité d'utiliser XCP dans des environnements sécurisés. Lorsqu'un utilisateur non-root exécute des opérations XCP, l'utilisateur non-root dispose des mêmes droits et limites d'accès que l'utilisateur.
+
+Dans cet environnement sécurisé, un utilisateur root peut monter le volume source, de destination et de catalogue sur la machine hôte et fournir les autorisations nécessaires pour les volumes de destination et de catalogue pour qu'un utilisateur non-root puisse écrire les données. Cela permet à l'utilisateur non-root d'effectuer une migration à l'aide de la fonctionnalité XCP POSIX Connector.
+
+
+
+== Évolutivité horizontale XCP
+
+Jusqu'à présent, la migration des données à l'aide de XCP était limitée à un hôte unique avec une mémoire RAM et un processeur plus élevés. Afin d'accélérer la migration, on a augmenté la mémoire et les cœurs de l'hôte unique, mais il fallait toujours beaucoup de temps pour copier des pétaoctets de données. L'architecture XCP à évolutivité horizontale permet d'utiliser plusieurs hôtes pour effectuer une migration de données. Grâce à cette fonction, vous pouvez utiliser plusieurs hôtes Linux pour distribuer votre charge de travail et réduire le temps de migration.
+
+Vous pouvez bénéficier de l'évolutivité horizontale à plusieurs nœuds dans tous les environnements où la performance d'un seul système n'est pas suffisante. Pour surmonter les limites de performances d'un seul nœud, vous pouvez utiliser un seul nœud `copy` (ou `scan -md5`) Commande permettant d'exécuter des travailleurs sur plusieurs systèmes Linux ou nœuds de cluster Hadoop. Actuellement, l'évolutivité horizontale de XCP n'est prise en charge que pour `copy` opérations de commande.
+
+
+
+== Connecteurs du système de fichiers distribué Hadoop
+
+XCP prend en charge la migration des données d'un système de fichiers HDFS (Hadoop Distributed File System) vers un système de fichiers NetApp, et inversement. Dans un environnement Hadoop avec la sécurité activée, un utilisateur non root sur un cluster Hadoop peut effectuer la migration vers un système de fichiers exporté NetApp NFSv4. HDFS Connector (hdfs://) permet à XCP d'accéder à tout système de fichiers HDFS disponible avec différents fournisseurs. Un utilisateur non-root peut utiliser XCP pour effectuer des migrations à l'aide de connecteurs HDFS ou POSIX.
+
+Vous pouvez inclure des clusters HDFS dans une configuration à évolutivité horizontale XCP, car ils utilisent plusieurs machines Linux haut de gamme. Cela réduit au minimum l'exigence pour des nœuds workers XCP supplémentaires. Pour la migration de données, vous pouvez réutiliser les nœuds de cluster HDFS ou faire appel à des hôtes distincts.
+
+
+NOTE: Les connecteurs HDFS sont qualifiés et pris en charge pour les clusters MapR et Cloudera, mais ne peuvent effectuer qu'une base `copy` fonctionnement.

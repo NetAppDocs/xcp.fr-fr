@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: xcp-supported-configurations.html 
+keywords: xcp, configurations, supported, supported, hosts 
+summary: Les configurations XCP prises en charge, telles que les hôtes, les versions de ONTAP et les navigateurs pris en charge, sont répertoriées dans le IMT. 
+---
+= Configurations compatibles
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Toutes les configurations XCP prises en charge, telles que les hôtes, les versions de ONTAP et les navigateurs pris en charge, sont répertoriées dans le link:https://mysupport.netapp.com/matrix/["Matrice d'interopérabilité (IMT)"^].

@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: xcp-add-file-servers.html 
+keywords: netapp, xcp, file, servers, access, analytics, learn, about, graphs, hot, cold, count, size, entries in directory, distribution by size, directory depth, file space used by size 
+summary: Ajout de serveurs de fichiers 
+---
+= Ajouter des serveurs de fichiers
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Vous pouvez configurer les systèmes de fichiers exportés NFS et SMB dans l'interface graphique XCP File Analytics.
+
+Cela permet à XCP File Analytics de numériser et d'analyser des données sur le système de fichiers. Procédez comme suit pour ajouter des serveurs de fichiers NFS ou SMB.
+
+.Étape
+. Pour ajouter des serveurs de fichiers, sélectionnez *Ajouter un serveur de fichiers*.
+
+
+image:xcp_image3.png["Écran Ajouter un serveur de fichiers"]
+
+Ajoutez l'adresse IP du serveur de fichiers, sélectionnez l'option NFS ou SMB et cliquez sur *Ajouter*.
+
+
+NOTE: Si un agent SMB n'est pas visible dans l'interface graphique, vous ne pourrez pas ajouter de serveur SMB.
+
+Après avoir ajouté le serveur de fichiers, XCP affiche :
+
+* Nombre total de partages de fichiers disponibles
+* Partage de fichiers avec des données analytiques (le nombre initial est « 0 », ce qui est mis à jour lorsque vous exécutez une analyse réussie)
+* Utilisation de l'espace total : somme de l'espace utilisé par toutes les exportations
+* Les données des partages de fichiers et l'utilisation de l'espace sont des données en temps réel directes depuis le serveur NFS/SMB. La collecte et le traitement des données prennent plusieurs secondes.
+
+
+
+NOTE: L'espace disponible par rapport à l'espace utilisé dans File Analytics est calculé à partir de chaque système de fichiers exporté disponible sur NFS. Par exemple, si les volumes sont constitués de qtrees et que les exports sont créés sur un qtree, l'espace global représente l'espace cumulé de la taille du volume et de la taille de qtree.

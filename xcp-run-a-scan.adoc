@@ -1,0 +1,130 @@
+---
+sidebar: sidebar 
+permalink: xcp-run-a-scan.html 
+keywords: netapp, xcp, run, scan, 
+summary: 'Exécution d"une acquisition' 
+---
+= Exécuter une acquisition
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Lorsque le système de fichiers NFS/SMB est ajouté à l'interface graphique d'analyse des fichiers XCP, vous pouvez démarrer une analyse du système de fichiers pour analyser et représenter les données.
+
+.Étapes
+. Sélectionnez la flèche sur la carte de serveur de fichiers ajoutée pour afficher les partages de fichiers sur le serveur de fichiers.
++
+image:xcp_image4.png["Afficher une image de partage de fichiers"]
+
+. Dans la liste des partages de fichiers, sélectionnez le nom du partage de fichiers à analyser.
+. Sélectionnez *Scan* pour lancer la numérisation.
++
+XCP affiche une barre de progression pour l'acquisition.
+
+. Lorsque l'acquisition est terminée, les onglets *stat View* et *file distribution* sont activés pour vous permettre d'afficher des graphiques.
+
+
+image:xcp_image5.png["Numériser l'image complète"]
+
+
+
+== Apprenez-en plus sur les graphiques
+
+Le tableau de bord de l'interface graphique File Analytics affiche plusieurs graphiques pour la visualisation de File Analytics.
+
+
+
+=== Graphique de comptage à froid chaud
+
+XCP File Analytics catégorise les fichiers qui ne sont pas utilisés pendant 90 jours comme données inactives. Les fichiers utilisés au cours des 90 derniers jours sont des données fortement sollicitées. Les critères de définition des données actives et inactives dépendent uniquement de l'heure d'accès.
+
+image:xcp_image6.png["Graphique de comptage à froid chaud"]
+
+Le graphique compte froid chaud affiche le nombre d'inodes (en millions) qui sont chauds ou froids dans XCP NFS. Dans XCP SMB, ce graphique indique le nombre de fichiers chauds ou froids. La barre de couleur représente les données actives et indique le pourcentage de fichiers consultés dans les 90 jours.
+
+
+
+=== Graphique de taille froide à chaud
+
+image:xcp_image7.png["Graphique de taille froide à chaud"]
+
+Le graphique Hot Cold Size affiche le pourcentage de fichiers chauds et froids ainsi que la taille totale des fichiers dans chaque catégorie. La barre de couleur représente les données actives et la partie non colorée représente les données inactives. Les critères de définition des données actives et inactives dépendent uniquement de l'heure d'accès.
+
+
+
+=== Entrées dans le diagramme de répertoire
+
+image:xcp_image8.png["Entrées dans le diagramme de répertoire"]
+
+Le graphique répertoires affiche le nombre d'entrées dans les répertoires. La colonne profondeur contient différentes tailles de répertoire et la colonne nombre indique le nombre d'entrées dans chaque profondeur de répertoire.
+
+
+
+=== Graphique de distribution de fichiers par taille
+
+image:xcp_image9.png["Graphique de distribution de fichiers par taille"]
+
+Le graphique distribution de fichiers par taille affiche le nombre de fichiers dont la taille est inférieure à la taille de fichier donnée. La colonne taille de fichier contient les catégories de taille de fichier et la colonne nombre indique la distribution du nombre de fichiers.
+
+
+
+=== Graphique de profondeur de répertoire
+
+image:xcp_image10.png["Graphique de profondeur de répertoire"]
+
+Le graphique profondeur du répertoire représente la distribution du nombre de répertoires dans différentes plages de profondeur du répertoire. La colonne profondeur contient plusieurs profondeurs de répertoire et la colonne nombre contient le nombre de la profondeur de chaque répertoire dans le partage de fichiers.
+
+
+
+=== Espace fichier utilisé par graphique de taille
+
+image:xcp_image11.png["Espace fichier utilisé par graphique de taille"]
+
+Le graphique espace fichier utilisé par taille affiche le nombre de fichiers dans différentes plages de tailles de fichier. La colonne taille de fichier contient des plages de tailles de fichier différentes et la colonne espace utilisé indique l'espace utilisé par chaque plage de tailles de fichier.
+
+
+
+=== Graphique de l'espace occupé par les utilisateurs
+
+image:xcp_image12.png["Graphique de l'espace occupé par les utilisateurs"]
+
+Le graphique espace occupé par les utilisateurs affiche l'espace utilisé par les utilisateurs. La colonne Nom d'utilisateur contient les noms des utilisateurs (UID lorsque les noms d'utilisateur ne peuvent pas être récupérés) et la colonne espace utilisé indique l'espace utilisé par chaque nom d'utilisateur.
+
+
+
+=== Fichiers consultés/modifiés/créés
+
+image:xcp_image13.png["Fichiers consultés/modifiés/créés"]
+
+Le graphique fichiers accédés/modifiés/créés affiche le nombre de fichiers modifiés d'heures supplémentaires. L'axe X représente la période pendant laquelle des changements ont été effectués et l'axe y représente le nombre de fichiers modifiés.
+
+
+NOTE: Pour obtenir le graphique du temps d'accès (atime) dans les acquisitions SMB, cochez la case pour préserver l'heure avant d'exécuter une acquisition.
+
+
+
+=== Graphique de distribution de fichiers par extension
+
+image:xcp_image14.png["Graphique de distribution de fichiers par extension"]
+
+Le graphique distribution de fichiers par extension représente le nombre des différentes extensions de fichier dans un partage de fichiers. La taille des divisions représentant les extensions est basée sur le nombre de fichiers avec chaque extension.
+
+
+
+=== Graphique de distribution de fichiers par type
+
+image:xcp_image15.png["Graphique de distribution de fichiers par extension"]
+
+Le graphique distribution par type représente le nombre des types de fichiers suivants :
+
+* ORD. : Fichiers normaux
+* LNK : fichiers avec liens
+* Spéciaux : fichiers avec fichiers de périphériques et fichiers de caractères.
+* DIR : fichiers avec répertoires
+* Jonction : disponible uniquement en SMB
+

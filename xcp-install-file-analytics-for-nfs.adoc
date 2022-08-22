@@ -1,0 +1,41 @@
+---
+sidebar: sidebar 
+permalink: xcp-install-file-analytics-for-nfs.html 
+keywords: netapp, xcp, install, installing, file, analytics, nfs, upgrade, upgrading 
+summary: Installez ou mettez à niveau File Analytics pour NFS 
+---
+= Installez File Analytics for NFS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Installez ou mettez à niveau File Analytics pour NFS.
+
+Pour connaître la configuration système requise pour NFS, reportez-vous à la section link:xcp-install-xcp-nfs.html["Installer XCP NFS"]. Le `configure.sh` Script installe et active les configurations par défaut de HTTPD et PostgreSQL disponibles pour le serveur Linux. Vous pouvez modifier ou mettre à jour une version plus récente en fonction de vos besoins et respecter les consignes de sécurité.
+
+.Avant de commencer
+* Vous ne pouvez pas exécuter l'application XCP et XCP en tant que service simultanément sur le même hôte. Si des opérations XCP sont en cours d'exécution, terminez les opérations avant de démarrer la configuration.
+* Votre ordinateur Linux doit être connecté au serveur de référentiel Yum ou à Internet.
+* Si un pare-feu est configuré sur la machine Linux, vous devez modifier les paramètres du pare-feu pour activer les ports utilisés par XCP, le service XCP et les services utilisés par XCP File Analytics. Pour plus d'informations, rendez-vous sur xref:xcp-ports-used.html[Ports utilisés par XCP].
+
+
+.Étapes
+. Accédez à votre dossier XCP et exécutez le `./configure.sh` script. Le script prend trois à dix minutes pour configurer la machine Linux et effectuer les tâches suivantes :
++
+.. Téléchargez les packages PostgreSQL
+.. Installez le serveur PostgreSQL
+.. Installez HTTPD
+.. Utilisez le SSL ouvert pour créer un certificat auto-signé (`server.key and server.crt`)
+.. Créez la base de données XCP File Analytics
+
+
+. Sélectionnez `option 1 Configure client system` Dans le menu de configuration XCP.
+. Pour une nouvelle installation, mettez à jour le mot de passe pour l'administrateur et les utilisateurs de la base de données. Pour une mise à niveau, vous êtes invité à arrêter le service XCP. Lorsque vous avez terminé, sélectionnez `option 0`.
+. Démarrer le service XCP. Utiliser la commande suivante pour vérifier si le service XCP fonctionne : service xcp status
+. Lancez File Analytics dans le navigateur : *\https://<ip adresse de linux>/xcp*.
+

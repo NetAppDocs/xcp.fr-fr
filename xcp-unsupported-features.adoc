@@ -1,0 +1,81 @@
+---
+sidebar: sidebar 
+permalink: xcp-unsupported-features.html 
+keywords: xcp, nfs, smb, features, unsupported, configuration 
+summary: Certaines fonctionnalités ne sont pas prises en charge sur XCP NFS ou XCP SMB. 
+---
+= Fonctions non prises en charge
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Les fonctionnalités suivantes ne sont pas prises en charge sur XCP NFS :
+
+[cols="40,60"]
+|===
+| Nom de la fonction | Description 
+
+
+| IPv6 | Ne prend pas en charge IP version 6 (IPv6) 
+
+
+| Listes de contrôle d'accès (ACL) NFSv4 (tierces) | Ne prend pas en charge les listes de contrôle d'accès NFSv4 NetApp par un tiers 
+
+
+| Connecteur POSIX  a| 
+* Le `sync` La commande ne prend pas en charge le connecteur POSIX
+* Vous ne devez pas utiliser le `copy` commande lorsque la source est active
+
+
+
+
+| Connecteur HDFS (Hadoop Distributed File System)  a| 
+* Le `sync` La commande ne prend pas en charge le connecteur HDFS
+* Le système de fichiers HDFS ne prend pas en charge les liens symboliques (symlinks), les liens matériels ou les fichiers spéciaux
+* Vous ne devez pas utiliser le `copy` commande lorsque la source est active
+
+
+
+
+| ACL | Lorsque la source est un système non-NetApp, XCP ne copie pas les ACL. 
+
+
+| Linux | XCP n'est plus pris en charge sur des distributions antérieures de Linux qui étaient prises en charge par XCP 1.6.3. 
+|===
+Les fonctionnalités suivantes ne sont pas prises en charge sur XCP SMB :
+
+[cols="40,60"]
+|===
+| Nom de la fonction | Description 
+
+
+| Lien symbolique NFS (symlink) | NFS symlink n'est pas pris en charge dans XCP SMB 
+
+
+| Option ACL pour scan | Listes de contrôle d'accès non prises en charge pour l'option de numérisation 
+
+
+| IPv6 | Ne prend pas en charge IP version 6 (IPv6) 
+
+
+| Flux de données NTFS alternatifs | XCP ne prend pas actuellement en charge les flux de données alternatifs 
+
+
+| Filtres XCP | L'option d'exclusion XCP SMB exclut actuellement les répertoires en fonction de leur modèle dans le filtre et traverse le système de fichiers de ces répertoires. 
+
+
+| Prise en charge des sources actives | XCP ne prend pas en charge l'utilisation d'une copie de base ou d'une copie Snapshot incrémentielle suivie d'une migration en direct de source pour une synchronisation incrémentielle. 
+|===
+Les fonctionnalités communes suivantes ne sont pas disponibles pour XCP NFS et SMB :
+
+* *XCP multiple instances sur le même hôte*: Lors de l'exécution de plusieurs instances de XCP sur le même hôte, vous pourriez obtenir des résultats imprévisibles.
+* *Temps de migration complet*: XCP amont ne fournit pas le temps de terminer la migration ou le temps de terminer toute commande utilisée pour la migration. Si vous effectuez la mise en service finale, vérifiez que la perte de données sur le volume source est faible.
+* *L'exécution de la copie sur une cible non nettoyée*: La copie de base XCP échoue lorsqu'il y a des données partielles sur la cible de destination. Pour une copie de base XCP réussie et une vérification XCP, la destination doit être propre.
+* *Destination Live*: XCP ne prend pas en charge la modification des données sur le volume de destination pendant une migration ou pendant une synchronisation incrémentielle.
+* *Utilisateur non-root pour File Analytics*: XCP ne prend pas en charge les installations et les configurations effectuées par un utilisateur non-root ou un utilisateur sudo.
+

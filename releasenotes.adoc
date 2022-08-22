@@ -1,0 +1,13 @@
+---
+permalink: releasenotes.html 
+sidebar: sidebar 
+keywords: release, notes, new, features, fixed, issues, known, xcp 
+summary: Décrit les nouvelles fonctionnalités, les notes de mise à niveau, les problèmes résolus, les limitations connues et les problèmes connus. 
+---
+= Notes de version XCP v1.9
+:allow-uri-read: 
+
+
+Le link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2883342["Notes de version XCP v1.9"^] décrivez les nouvelles fonctionnalités, les notes de mise à niveau, les problèmes résolus, les limites connues et les problèmes connus.
+
+Vous devez vous connecter sur le site du support NetApp pour accéder aux notes de version.

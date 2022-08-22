@@ -1,0 +1,49 @@
+---
+sidebar: sidebar 
+permalink: xcp-install-xcp.html 
+keywords: netapp, xcp, install, installing, download, downloading, license, preparing, system 
+summary: Installer XCP 
+---
+= Installer XCP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Installer XCP.
+
+
+
+== Installer et configurer le workflow
+
+Ce document fournit un flux de travail facile pour l'installation et la configuration de XCP sur les systèmes NFS et SMB.
+
+image:xcp_image16.PNG["Erreur : image graphique manquante"]
+
+
+
+== Télécharger XCP
+
+Télécharger XCP depuis le site de support de NetApp et obtenir une licence sur le site XCP.
+
+Vous pouvez télécharger XCP à partir du link:https://mysupport.netapp.com/products/p/xcp.html["Site de support NetApp"^].
+
+
+
+== Licence XCP
+
+NetApp offre une licence XCP gratuite de 90 jours. Vous pouvez obtenir le fichier de licence à partir du link:https://xcp.netapp.com/["Site XCP"^]. Le portail de licence offre différentes options de licence. Après 90 jours, vous pouvez renouveler la licence pour 90 jours supplémentaires à l'aide du même portail.
+
+La licence XCP est disponible sous forme de licence hors ligne ou en ligne. Si vous souhaitez envoyer des statistiques de migration, utilisez une licence en ligne. La licence en ligne nécessite une connexion Internet. La licence hors ligne ne nécessite pas de connexion Internet.
+
+
+
+== Préparez votre système
+
+Si vous utilisez link:xcp-prepare-linux-for-xcp-nfs.html["XCP NFS sur un système Linux"], vous devez préparer le catalogue et le stockage.
+
+Si vous utilisez link:xcp-prepare-windows-for-xcp-smb.html["XCP SMB sur un système Microsoft Windows"], vous devez préparer le stockage.

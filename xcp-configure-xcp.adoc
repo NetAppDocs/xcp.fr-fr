@@ -1,0 +1,15 @@
+---
+sidebar: sidebar 
+permalink: xcp-configure-xcp.html 
+keywords: netapp, xcp, configure, configuring, how, performing, tuning, nfs, 
+summary: Étapes de configuration de XCP 
+---
+= Configurer XCP NFS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+

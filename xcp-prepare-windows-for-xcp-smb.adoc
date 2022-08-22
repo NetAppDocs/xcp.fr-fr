@@ -1,0 +1,70 @@
+---
+sidebar: sidebar 
+permalink: xcp-prepare-windows-for-xcp-smb.html 
+keywords: netapp, xcp, prepare, preparing, preparation, windows, 
+summary: Préparation de Windows pour XCP SMB 
+---
+= Préparation de Windows pour XCP SMB
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+XCP SMB utilise les systèmes hôtes client Windows pour générer des flux d'E/S parallèles et exploiter entièrement la performance du réseau et du stockage disponibles.
+
+
+
+== Configurer le stockage
+
+Les transitions et les migrations SMB de XCP présentent les exigences de connexion utilisateur suivantes :
+
+* Système hôte XCP : un utilisateur hôte XCP doit disposer d'un privilège administrateur (l'utilisateur doit faire partie du groupe "BUILTIN\Administrators" sur le système hôte XCP SMB).
+* Ajoutez l'utilisateur hôte de migration ou XCP à la stratégie de journalisation d'audit et de sécurité d'Active Directory. Pour localiser la stratégie de gestion de l'audit et du journal de sécurité sur Windows 10, procédez comme suit :
++
+.Étapes
+.. Ouvrez la boîte de dialogue *Group Policy Editor*.
+.. Accédez à *Configuration de l'ordinateur > Paramètres Windows > Paramètres de sécurité > stratégies locales > affectation des droits de l'utilisateur*.
+.. Sélectionnez *gérer le journal d'audit et de sécurité*.
+.. Pour ajouter un utilisateur hôte XCP, sélectionnez *Ajouter un utilisateur ou un groupe*.
++
+Pour plus d'informations, voir : link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953(v%3Dws.11)["Gérez le journal des audits et de la sécurité"^].
+
+
+
+* Système de stockage cible : l'utilisateur hôte XCP doit disposer d'un accès en lecture et en écriture.
+* Système de stockage source :
++
+** Si l'utilisateur fait partie du groupe "opérateurs de sauvegarde" du système de stockage source, les membres de ce groupe peuvent lire des fichiers tout en contournant les règles de sécurité, quelles que soient les autorisations qui protègent ces fichiers.
+** Si l'utilisateur ne fait pas partie du groupe "opérateurs de sauvegarde" du système source, il doit disposer d'un accès en lecture.
+
+
+
+
+
+NOTE: Une autorisation d'écriture est requise dans le système de stockage source pour la prise en charge de l'option XCP `- preserve-atime`.
+
+
+
+== Configurer un client Windows
+
+* Ajoutez la zone de stockage de destination et la zone de stockage source au fichier hôte :
++
+.. Accédez à l'emplacement suivant : `(C:\Windows\System32\drivers\etc\hosts)`
+.. Insérez les entrées hôte suivantes dans le fichier au format suivant :
++
+`<Source data vserver data interface ip>   <Source cifs server name>
+<Destination data vserver data interface ip>   <Destination cifs server name>`
+
++
+*Exemple*
+
++
+image:xcp_image17.png["exemple de fichier d'hôtes"]
+
+
+
+

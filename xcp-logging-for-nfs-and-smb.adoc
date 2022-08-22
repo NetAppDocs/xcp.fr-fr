@@ -1,0 +1,159 @@
+---
+sidebar: sidebar 
+permalink: xcp-logging-for-nfs-and-smb.html 
+keywords: netapp, xcp, configure, configuring, how, performing, tuning, nfs, smb 
+summary: Connexion pour XCP NFS et SMB 
+---
+= Connexion pour NFS et SMB (facultatif)
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Connexion pour XCP NFS et SMB.
+
+XCP prend en charge la configuration de plusieurs fonctions facultatives à l'aide du `xcpLogConfig.json` Fichier de configuration JSON. Pour activer uniquement des fonctions spécifiques, créez manuellement le `xcpLogConfig.json` fichier de configuration. Vous pouvez utiliser le `xcpLogConfig.json` fichier de configuration pour activer :
+
+* messages du journal des événements
+* Client Syslog pour XCP
+* Journalisation XCP personnalisée
+
+
+Les messages du journal des événements et le client syslog sont désactivés dans la configuration par défaut. Les configurations sont communes aux environnements NFS et SMB.
+
+|===
+| Emplacement du fichier JSON de configuration | NFS | PME 
+
+
+| Emplacement par défaut du fichier de configuration | /Opt/NetApp/Xfiles/xcp/ | C:\NetApp\XCP\ConfigFile 
+
+
+| L'emplacement personnalisé nécessite le `XCP_CONFIG_DIR` variable d'environnement | Utilisez l'emplacement que vous avez défini par rapport au `XCP_CONFIG_DIR` variable | S/O 
+|===
+Les options du fichier de configuration JSON sont sensibles à la casse. Ces options sont les mêmes pour XCP NFS et XCP SMB.
+
+[cols="20,15,15,50"]
+|===
+| Nom des sous-options | Type de données JSON | Valeur par défaut | Description 
+
+
+| Config. Journal |  |  | Option de personnalisation de la journalisation XCP. 
+
+
+| “niveau” | Chaîne | INFO | Niveau de filtre de gravité des messages du journal. Les messages du journal XCP prennent en charge cinq niveaux de gravité par ordre décroissant de gravité : CRITIQUE, ERREUR, AVERTISSEMENT, INFO, DÉBOGAGE (NetApp recommande fortement d'utiliser LES INFORMATIONS ou LE DÉBOGAGE) 
+
+
+| « Maxoctets » | Entier | 52428800 | Taille de chaque fichier journal rotatif. Le nombre maximum de fichiers de rotation pris en charge est de 10. 
+
+
+| « nom » | Chaîne | xcp.log | Option permettant de définir le nom du fichier journal personnalisé. 
+
+
+| journal d'événements |  |  | Option de configuration du message du journal des événements. 
+
+
+| « Sous activation » | Booléen | faux | Cette option booléenne est utilisée pour activer la messagerie d'événement. Réglage sur `false` ne génère aucun message d'événement et aucun journal d'événements ne sera publié dans le fichier journal d'événements. 
+
+
+| “niveau” | Chaîne | INFO | Niveau de filtre de gravité du message d'événement. La messagerie d'événements prend en charge cinq niveaux de gravité par ordre décroissant de gravité : CRITIQUE, ERREUR, AVERTISSEMENT, INFO, DÉBOGAGE 
+
+
+| syslog |  |  | Option de configuration de la messagerie syslog. 
+
+
+| « Sous activation » | Booléen | faux | Cette option booléenne est utilisée pour activer le client syslog dans XCP. 
+
+
+| “niveau” | Chaîne | INFO | Niveau de filtre de gravité des messages. Les messages du journal d'événements XCP prennent en charge cinq niveaux de gravité par ordre décroissant de gravité : CRITIQUE, ERREUR, AVERTISSEMENT, INFO, DÉBOGAGE 
+
+
+| « Server Ip » | Chaîne | Aucune | Adresses IP ou nom d'hôte du serveur syslog distant. 
+
+
+| “orifice” | Entier | 514 | Port du récepteur syslog distant. Les récepteurs syslog acceptant des datagrammes syslog sur un port différent peuvent être configurés avec l'option de port UDP port 514 mais vous pouvez également configurer sur le port souhaité. 
+
+
+| « aseptiser » | Booléen | faux  a| 
+Une option commune pour la prise en charge de XCP ; en définissant sa valeur sur true, on masque les informations sensibles (IP et nom d'utilisateur) dans les messages qui vont prendre en charge (journalisation, événements, syslog, etc.). Par exemple, avec `sanitize` option as `false`: *	`2020-07-17 03:10:23,779 - INFO - 12806 xcp xcp Paths: ['10.234.104.251:/cat_vol']`*	`2020-07-17 03:10:23,778 - INFO - 12806 xcp xcp User Name: root`Avec le `sanitize` option as `true`: *	`2020-07-17 03:13:51,596 - INFO - 12859 xcp xcp Paths: ['IP: XX.XX.XX.XX:/cat_vol']`*	`2020-07-17 03:13:51,595 - INFO - 12859 xcp xcp User Name: * * *`
+
+|===
+
+
+== Créez le fichier de configuration JSON
+
+Si vous souhaitez activer les messages du journal des événements, le client syslog ou la connexion client, procédez comme suit.
+
+.Étapes
+. Ouvrez n'importe quel éditeur de texte, tel que Notepad ou vi.
+. Créez un nouveau fichier avec le modèle JSON suivant.
++
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "eventlog": {
+    "isEnabled": false,
+    "level": "INFO"
+  },
+  "syslog": {
+    "isEnabled": false,
+    "level": "INFO",
+    "serverIp": "10.234.219.87",
+    "port": 514
+  },
+  "sanitize": false
+}
+----
+. Pour toutes les fonctions que vous souhaitez activer, modifiez le `isEnabled` valeur à `true`.
+. Nommez le fichier `xcpLogConfig.json` Et enregistrez-le à l'emplacement par défaut : /opt/NetApp/Xfiles/xcp/
++
+Si le `XCP_CONFIG_DIR` la variable d'environnement est définie, enregistrez `xcpLogConfig.json` fichier au même emplacement que le `XCP_CONFIG_DIR` variable.
+
+
+
+|===
+| Configuration par défaut | Exemple de fichier de configuration json 
+
+
+ a| 
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "sanitize": false
+}
+---- a| 
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "eventlog": {
+    "isEnabled": false,
+    "level": "INFO"
+  },
+  "syslog": {
+    "isEnabled": false,
+    "level": "INFO",
+    "serverIp": "10.234.219.87",
+    "port": 514
+  },
+  "sanitize": false
+}
+----
+|===

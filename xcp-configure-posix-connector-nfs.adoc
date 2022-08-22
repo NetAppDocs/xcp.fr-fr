@@ -1,0 +1,97 @@
+---
+sidebar: sidebar 
+permalink: xcp-configure-posix-connector-nfs.html 
+keywords: xcp, configure, nfs, posix, connector 
+summary: 'Le connecteur POSIX permet à XCP d"accéder à tout système de fichiers monté sur Linux, tel que NFSv4, XFS et Veritas.' 
+---
+= Configurez le connecteur POSIX
+:allow-uri-read: 
+
+
+[role="lead"]
+XCP NFS prend désormais en charge l'utilisation de connecteurs POSIX pour fournir des chemins source et de destination pour la migration des données.
+
+
+
+== Fonctionnalités prises en charge
+
+Les fonctions suivantes sont prises en charge pour les connecteurs POSIX :
+
+* Pour les systèmes de fichiers POSIX prenant en charge la nanoseconde `atime`, `mtime`, et `ctime`, le `scan` la commande obtient les valeurs complètes (secondes et nanosecondes) et le `copy` les définit par commande
+* Les connecteurs POSIX sont plus sûrs que XCP avec des sockets TCP NFSv3.
+
+
+
+
+== Syntaxe du chemin
+
+La syntaxe de chemin d'un connecteur POSIX est `\file://<mounted path on linux>`.
+
+
+
+== Configurez un connecteur POSIX
+
+Pour configurer un connecteur POSIX, vous devez effectuer les tâches suivantes :
+
+* Monter un volume source et un volume de destination
+* Vérifiez que le chemin de destination dispose de l'autorisation nécessaire pour écrire les données
+
+
+Une destination et un catalogue sont montés dans l'exemple suivant :
+
+[listing]
+----
+root@scspr2395903001 ~]# findmnt -t nfs4
+TARGET SOURCE FSTYPE OPTIONS
+/t/10.237.170.39_src_vol 10.237.170.39:/source_vol nfs4
+rw,relatime,vers=4.0,rsize=65536,wsize=65536,namlen=255,hard,proto=t
+cp,timeo=600,retrans=2,sec=sys,clien
+/t/10.237.170.53_dest_vol 10.237.170.53:/dest_vol nfs4
+rw,relatime,vers=4.0,rsize=65536,wsize=65536,namlen=255,hard,proto=t
+cp,timeo=600,retrans=2,sec=sys,clien
+/t/10.237.170.53_catalog_vol 10.237.170.53:/xcp_catalog nfs4
+rw,relatime,vers=4.0,rsize=65536,wsize=65536,namlen=255,hard,proto=t
+cp,timeo=600,retrans=2,sec=sys,clien
+[root@scspr2395903001 ~]#
+----
+Les connecteurs POSIX accèdent à un volume source et de destination en utilisant la syntaxe POSIX `file://`. Dans l'exemple ci-dessus, le chemin source est `\file:///t/10.237.170.39_src_vol` et le chemin de destination est `file:// /t/10.237.170.53_dest_vol`.
+
+Vous pouvez gérer l'exemple de configuration d'un catalogue XCP partagé par des utilisateurs non-root en créant un groupe Linux pour les utilisateurs XCP. Pour les utilisateurs non-racines, les autorisations suivantes sont requises pour que les utilisateurs du groupe Linux effectuent des migrations.
+
+Dans l'exemple de sortie suivant, `demo` est l'utilisateur non-racine et `/mnt/xcp-catalog` est le chemin d'accès où le volume du catalogue est monté :
+
+[listing]
+----
+sudo groupadd -g 7711 xcp_users
+sudo usermod -G xcp_users -a demo
+sudo chown -R :xcp_users /mnt/xcp-catalog
+sudo chmod -R g+w /mnt/xcp-catalog
+----
+Le catalogue XCP ne stocke pas les données mais il stocke les noms de fichiers de numérisation et de copie, les noms de répertoires et d'autres métadonnées. Par conséquent, il est recommandé de configurer les autorisations de système de fichiers de catalogue pour les utilisateurs autorisés afin de leur donner la possibilité de sécuriser les métadonnées stockées.
+
+
+
+== Propriété (UID et GID)
+
+Lorsque vous êtes configuré comme utilisateur normal, par défaut, un `copy` Une commande vers une destination POSIX ou NFS3 ne tente pas de définir la propriété (ID utilisateur (UID) et ID de groupe (GID). La définition de la propriété est généralement effectuée par un administrateur. Lorsque l'utilisateur A copie des fichiers de l'utilisateur B, l'utilisateur A s'attend à posséder la destination. Cependant, ce n'est pas le cas lorsqu'un utilisateur root copie les fichiers. Lorsqu'un utilisateur root copie les fichiers, le `-chown` l'option modifie le comportement de sorte qu'un comportement non-racine soit modifié `copy` commande avec `-chown` Tentatives de définition de l'UID et du GID.
+
+
+
+== Augmentez le nombre maximal de descripteurs de fichier ouverts
+
+Pour des performances et une fiabilité optimales, vous pouvez augmenter le nombre maximal de descripteurs de fichier ouverts pour l'utilisateur XCP sur tous les nœuds.
+
+.Étapes
+. Ouvrez le fichier à l'aide de la commande suivante :
+`vi /etc/security/limits.conf`
+. Ajoutez la ligne suivante au fichier :
+`<username> - nofile 999999`
+
+
+*Exemple*
+
+[listing]
+----
+root - nofile 999999
+----
+Voir link:https://access.redhat.com/solutions/61334^["Solutions Red Hat"] pour en savoir plus.

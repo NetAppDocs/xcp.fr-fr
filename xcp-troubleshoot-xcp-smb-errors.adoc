@@ -1,0 +1,53 @@
+---
+sidebar: sidebar 
+permalink: xcp-troubleshoot-xcp-smb-errors.html 
+keywords: netapp, xcp, troubleshoot, troubleshooting, smb, 
+summary: Dépannage des erreurs XCP SMB 
+---
+= Dépanner les erreurs XCP SMB
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Passez en revue les solutions pour résoudre votre problème.
+
+|===
+| Problème | Solution 
+
+
+| `xcp: ERROR`: Cette licence a expiré | Renouvelez ou obtenez la nouvelle licence XCP auprès du link:https://xcp.netapp.com/["Site XCP"^]. 
+
+
+| Cette copie n'est pas sous licence | Obtenir le fichier de licence XCP approprié. Copiez la licence XCP sur le `c:\netapp\xcp` Dossier sur l'hôte XCP. Exécutez le `xcp activate` pour activer la licence 
+
+
+| `xcp: ERROR`: XCP non activé, exécutez 'Activer' en premier | Téléchargez la licence XCP à partir du link:https://xcp.netapp.com/["Site XCP"^]. Copiez le fichier sur l'hôte client XCP Linux à `c:\netapp\xcp` Sur l'hôte XCP. Exécutez le `xcp activate` pour activer la licence. 
+
+
+| `xcp: ERROR`: Fichier de licence C:\NetApp\XCP\licence introuvable | S'inscrire pour la licence XCP sur le link:https://xcp.netapp.com/["Site XCP"^]. Téléchargez et copiez le fichier de licence dans `C:\NetApp\XCP\` Sur l'hôte client XCP Windows. 
+
+
+| Erreur de numérisation xcp : le nom du réseau est introuvable | Exécutez à nouveau la commande avec le nom de partage correct 
+
+
+| Erreur de copie xcp : ERREUR lors de l'obtention du message d'erreur du principal de sécurité de secours enregistré dans le fichier xcp.log :
+`pywintypes.error: (1722, 'LookupAccountName', 'The RPC server is unavailable.')` | Ajoutez la zone de destination dans le fichier hosts (`C:\Windows\System32\drivers\etc\hosts`). La zone d'entrée de la zone de destination du stockage NetApp doit être au format suivant :
+`<data vserver data interface ip>` 1 ou plus d'espaces blancs `<cifs server name>` 
+
+
+| `xcp copy: ERROR` Échec de l'obtention du principal de sécurité de secours (post ajout de l'entrée de la boîte de destination dans les fichiers hôtes) erreur consignée dans le fichier xcp.log :
+`'No mapping between account names and security IDs was done'` | L'utilisateur/groupe de secours n'existe pas dans le système cible (zone de destination) ou dans le répertoire actif. Exécutez à nouveau la commande avec les options d'utilisateur/groupe de secours appropriées 
+
+
+| `xcp copy: ERROR` Échec de l'obtention du principal de sécurité de secours (post ajout de l'entrée de la boîte de destination dans les fichiers hôtes) erreur consignée dans le fichier xcp.log :
+`pywintypes.error: (87, 'LookupAccountName', 'The parameter is incorrect.')` | Paramètre incorrect pour l'option d'utilisateur/groupe de secours. Exécutez à nouveau la commande avec la syntaxe correcte pour les options utilisateur/groupe de secours 
+
+
+| `xcp copy` Lorsque le message d'erreur de migration acl est enregistré dans le fichier xcp.log :
+`pywintypes.error`: `(1314, 'GetNamedSecurityInfo', 'A required privilege is not held by the client.')` | Un utilisateur est confronté à un problème lié aux descripteurs de sécurité car avec les privilèges que l'utilisateur de migration possède, XCP ne peut obtenir que le propriétaire, le groupe et DACL, il ne peut pas obtenir SACL. Ajoutez votre utilisateur de migration à la stratégie « gérer le journal d'audit et de sécurité » dans Active Directory. Référence : link:https://docs.microsoft.com/en-us/previous-versions/windows/it-pro/windows-server-2012-r2-and-2012/dn221953%28v%3Dws.11%29["Gérez le journal des audits et de la sécurité"^] 
+|===

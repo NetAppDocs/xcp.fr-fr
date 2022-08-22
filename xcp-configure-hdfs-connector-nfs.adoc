@@ -1,0 +1,44 @@
+---
+sidebar: sidebar 
+permalink: xcp-configure-hdfs-connector-nfs.html 
+keywords: xcp, nfs, hdfs, connector, configure 
+summary: 'Le connecteur HDFS donne à XCP la possibilité d"accéder à tout système de fichiers HDFS disponible avec des fournisseurs différents.' 
+---
+= Configurer le connecteur HDFS
+:allow-uri-read: 
+
+
+[role="lead"]
+Pour XCP NFS, le connecteur HDFS (Hadoop Distributed File System) (hdfs://) permet à XCP d'accéder à tout système de fichiers HDFS disponible avec différents fournisseurs.
+
+Le `copy` Les opérations de commande de HDFS à NFS sont prises en charge pour les connecteurs HDFS.
+
+La syntaxe de chemin d'un connecteur HDFS est `hdfs://[user@host:port]/full-path`.
+
+
+NOTE: Si vous ne spécifiez pas d'utilisateur, d'hôte et de port, les appels XCP `hdfsConnect` avec l'hôte défini sur `default` et le port défini sur `0`.
+
+Pour exécuter HDFS `copy` Vous devez configurer le client HDFS sur le système Linux et, en fonction du fournisseur Hadoop, suivre la configuration d'installation disponible sur Internet. Par exemple, vous pouvez définir le client d'un cluster MapR à l'aide de `https://docs.datafabric.hpe.com/60/AdvancedInstallation/SettingUptheClient-redhat.html`.
+
+Une fois la configuration du client HFDS terminée, vous devez terminer la configuration sur le client. Pour utiliser les chemins HDFS avec des commandes XCP, vous devez disposer des variables d'environnement suivantes :
+
+* CHEMIN_NHDFS_LIBHDFS_NHDFS
+* CHEMIN_NHDFS_LIBJVM
+
+
+Dans les exemples suivants, les paramètres fonctionnent avec MapR et Java-1.8.0-openjdk-devel sur CentOS:
+
+[listing]
+----
+export JAVA_HOME=$(dirname $(dirname $(readlink $(readlink $
+(which javac)))))
+export NHDFS_LIBJVM_PATH=`find $JAVA_HOME -name "libjvm.so"` export
+NHDFS_LIBHDFS_PATH=/opt/mapr/lib/libMapRClient.so
+----
+[listing]
+----
+[demo@mapr0 ~]$ hadoop fs -ls Found 3 items
+drwxr-xr-x - demo mapr 0 2021-01-14 00:02 d1
+drwxr-xr-x - demo mapr 0 2021-01-14 00:02 d2
+drwxr-xr-x - demo mapr 0 2021-01-14 00:02 d3
+----

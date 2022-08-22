@@ -1,0 +1,88 @@
+---
+sidebar: sidebar 
+permalink: xcp-create-the-json-configuration-file.html 
+keywords: netapp, xcp, create, json, configuration, file 
+summary: Créez le fichier de configuration JSON 
+---
+= Créez le fichier de configuration JSON
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Créez le fichier de configuration JSON.
+
+Si vous souhaitez activer les messages du journal des événements, le client syslog ou la connexion client, procédez comme suit.
+
+*Étapes*
+
+. Ouvrez n'importe quel éditeur de texte, tel que Notepad ou vi.
+. Créez un nouveau fichier avec le modèle JSON suivant.
++
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "eventlog": {
+    "isEnabled": false,
+    "level": "INFO"
+  },
+  "syslog": {
+    "isEnabled": false,
+    "level": "INFO",
+    "serverIp": "10.234.219.87",
+    "port": 514
+  },
+  "sanitize": false
+}
+----
+. Pour toutes les fonctions que vous souhaitez activer, modifiez le `isEnabled` valeur à `true`.
+. Nommez le fichier `xcpLogConfig.json` Et sae il à l'emplacement du fichier mentionné dans *erreur! Source de référence introuvable.*
+
+
+|===
+| Configuration par défaut | Exemple de fichier de configuration json 
+
+
+ a| 
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "sanitize": false
+}
+---- a| 
+[listing]
+----
+{
+  "logConfig": {
+    "level": "INFO",
+    "maxBytes": 52428800,
+    "name": "xcp.log"
+  },
+  "eventlog": {
+    "isEnabled": false,
+    "level": "INFO"
+  },
+  "syslog": {
+    "isEnabled": false,
+    "level": "INFO",
+    "serverIp": "10.234.219.87",
+    "port": 514
+  },
+  "sanitize": false
+}
+----
+|===

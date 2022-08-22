@@ -1,0 +1,43 @@
+---
+sidebar: sidebar 
+permalink: xcp-ports-used.html 
+keywords: ports, xcp 
+summary: Vous muse vérifier que vous utilisez les ports appropriés pour la migration XCP. 
+---
+= Ports utilisés par XCP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Les ports suivants sont utilisés par XCP.
+
+[cols="50,50"]
+|===
+| Service | Port 
+
+
+| CIFS | 445 TCP/UDP 
+
+
+| HTTP (httpd) | 80 
+
+
+| HTTPS | 443 
+
+
+| NFS | 111 TCP/UDP ET 2049 TCP/UDP 
+
+
+| PostgreSQL | 5432 
+
+
+| XCP (en tant que service pour l'analytique de fichiers) | 5030 
+
+
+| HDFS | 7222 
+|===

@@ -1,0 +1,39 @@
+---
+sidebar: sidebar 
+permalink: xcp-prepare-file-analytics.html 
+keywords: netapp, xcp, prepare, preparing, preparation, file analytics 
+summary: 'Préparez la migration de vos données avec l"analytique des fichiers.' 
+---
+= Préparer l'analyse des fichiers
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Préparez la migration de vos données avec l'analytique des fichiers.
+
+File Analytics comprend les deux parties suivantes :
+
+* Serveur File Analytics fonctionnant sous Linux
+* Service XCP SMB fonctionnant sous Windows
+
+
+L'installation de File Analytics présente les conditions suivantes :
+
+* Les exigences système et système d'exploitation pris en charge sont identiques à celles indiquées pour les installations NFS et SMB. Comme la base de données réside sur une boîte Linux, vous devez vous assurer que vous disposez d'au moins 10 Go d'espace libre.
+* La machine Linux sur laquelle vous installez le serveur File Analytics doit être connectée à Internet ou au référentiel yum. Le script d'installation s'adresse au référentiel yum pour télécharger les packages requis, tels que PostgreSQL, HTTP et SSL.
+* L'interface graphique File Analytics ne peut être hébergée que sur une machine Linux avec des services XCP pour Linux fonctionnant sur la même boîte.
+* Pour exécuter les services SMB, procédez comme suit :
++
+** Vérifiez que votre boîte Windows peut envoyer une requête ping à l'ordinateur Linux sur lequel le serveur File Analytics s'exécute.
+** Si vous êtes à l'intérieur d'un pare-feu, vérifiez que les ports 5030 et 5432 sont ouverts. Le port 5030 est utilisé pour passer l'appel DE REPOS à Windows. Le port 5432 est utilisé pour la connexion PostgreSQL.
+
+
+
+
+
+NOTE: Le serveur XCP File Analytics fonctionne toujours sur un ordinateur Linux. Aucune installation distincte n'est disponible pour l'analyse des fichiers SMB. Si vous êtes un utilisateur Windows et souhaitez exécuter File Analytics pour le partage SMB, vous devez installer File Analytics pour Linux et connecter la boîte Windows à une base de données Linux. Si vous utilisez uniquement XCP File Analytics, vous n'avez pas besoin de configurer le catalogue XCP pour NFS.
