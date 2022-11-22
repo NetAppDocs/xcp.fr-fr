@@ -24,7 +24,7 @@ Passez en revue les solutions pour résoudre votre problème.
 | Problème XCP | Solution 
 
 
-| `xcp: ERROR`: Fichier d'index incompatible. Veuillez utiliser le fichier d'index généré avec la version actuelle de XCP uniquement. Vous pouvez aussi télécharger un fichier binaire XCP plus ancien à partir de xcp.netapp.com. | Vous essayez d'effectuer des opérations sur un index qui a été généré à l'aide d'une version XCP antérieure à XCP 1.9. Cette opération n'est pas prise en charge. Il est recommandé d'effectuer toutes les migrations en cours, puis de basculer vers cette version de XCP. Vous pouvez également exécuter à nouveau le `scan`, `copy` ou `verify` Commandes permettant de générer un nouvel index avec XCP 1.9. 
+| `xcp: ERROR`: Comparer les lots : fichier d'index incompatible. Veuillez utiliser le fichier d'index généré avec la version actuelle de XCP uniquement. Vous pouvez également télécharger un fichier binaire XCP plus ancien à partir de xcp.netapp.com. | Vous essayez d'effectuer des opérations sur un index qui a été généré à l'aide d'une version XCP antérieure à XCP 1.9. Cette opération n'est pas prise en charge. Il est recommandé d'effectuer toutes les migrations en cours, puis de basculer vers cette version de XCP. Vous pouvez également exécuter à nouveau le `scan`, `copy` ou `verify` Commandes permettant de générer un nouvel index avec XCP 1.9. 
 
 
 | `xcp: ERROR`: doit fonctionner comme root | Exécuter les commandes XCP en tant qu'utilisateur root 
@@ -112,6 +112,9 @@ Passez en revue les solutions pour résoudre votre problème.
 
 
 | `xcp: ERROR: batch 2: child process failed (exit code -6): recv <type 'exceptions.EOFError'>:` | Augmentez la mémoire système et relancez le test. 
+
+
+| `xcp:ERROR: invalid path 'IP:/users009/user1/2022-07-01_04:36:52_1489367` | Si le chemin du fichier contient un point-virgule (:), utilisez trois points-virgules (:::) à la place. 
 |===
 
 

@@ -22,13 +22,9 @@
   <block id="4f6cea84c64bcd2cbef1950791410c78" category="list-text">Démarrer le service XCP. Utiliser la commande suivante pour vérifier si le service XCP fonctionne : service xcp status</block>
   <block id="e58e3ebc6749ebd9f5c6ca3564e928e8" category="list-text">Lancez File Analytics dans le navigateur : *\https://&lt;ip adresse de linux&gt;/xcp*.</block>
   <block id="9d1854a18d1a1a9b0aad19c89b6a15b0" category="summary">Créez le fichier de configuration JSON</block>
-  <block id="eb498a91409025b6f7459d1487819ac5" category="paragraph">Créez le fichier de configuration JSON.</block>
   <block id="71067d2da44f21581259461be89d2c5b" category="paragraph">Si vous souhaitez activer les messages du journal des événements, le client syslog ou la connexion client, procédez comme suit.</block>
-  <block id="4839d2f25cc35b249d5db15efa1afd75" category="paragraph">*Étapes*</block>
   <block id="d4f0fd36ab870ee5b451ed975a3b840d" category="list-text">Ouvrez n'importe quel éditeur de texte, tel que Notepad ou vi.</block>
   <block id="d4b54477c37b7ad7e878a796746f262b" category="list-text">Créez un nouveau fichier avec le modèle JSON suivant.</block>
-  <block id="4c38ab1ef38cac28ef430c2be0673437" category="list-text">Pour toutes les fonctions que vous souhaitez activer, modifiez le<block ref="d97a94e6c10d324fbb3c5f3a1c4a12d5" prefix=" " category="inline-code"></block> valeur à<block ref="b326b5062b2f0e69046810717534cb09" prefix=" " category="inline-code"></block>.</block>
-  <block id="6bdc741a35e3429fb316e331210901e8" category="list-text">Nommez le fichier<block ref="f12496f8d8c39c37c0c4cdbe57540599" prefix=" " category="inline-code"></block> Et sae il à l'emplacement du fichier mentionné dans *erreur! Source de référence introuvable.*</block>
   <block id="7c584a16cbf4210dc0a344179e274e09" category="cell">Configuration par défaut</block>
   <block id="a2f0a9650b74152ef4105d29bb0e92f0" category="cell">Exemple de fichier de configuration json</block>
   <block id="d41d8cd98f00b204e9800998ecf8427e" category="doc"></block>
@@ -38,7 +34,6 @@
   <block id="5477a542a80c11f2da04e8a045970ccc" category="section-title">Problèmes et solutions XCP</block>
   <block id="ef8fd37900d2911bb2ff728bb4f9ec8b" category="cell">Problème XCP</block>
   <block id="49b21ad0d38942f635877e7bbc5d7a1e" category="cell">Solution</block>
-  <block id="2c21e7858fb5fc86fe2510cb996c6926" category="cell"><block ref="ad3b549c4b03e0598dee96d17d3ccc66" prefix="" category="inline-code"></block>: Fichier d'index incompatible. Veuillez utiliser le fichier d'index généré avec la version actuelle de XCP uniquement. Vous pouvez aussi télécharger un fichier binaire XCP plus ancien à partir de xcp.netapp.com.</block>
   <block id="ee919e739e668a270db61ab6e8e94e16" category="cell">Vous essayez d'effectuer des opérations sur un index qui a été généré à l'aide d'une version XCP antérieure à XCP 1.9. Cette opération n'est pas prise en charge. Il est recommandé d'effectuer toutes les migrations en cours, puis de basculer vers cette version de XCP. Vous pouvez également exécuter à nouveau le<block ref="53aefec08170b2ebed981a0a86d0dbe0" prefix=" " category="inline-code"></block>,<block ref="12cba3ee81cf4a793796a51b6327c678" prefix=" " category="inline-code"></block> ou<block ref="e8418d1d706cd73548f9f16f1d55ad6e" prefix=" " category="inline-code"></block> Commandes permettant de générer un nouvel index avec XCP 1.9.</block>
   <block id="a7cf2676d276e4fe420000595e3443d2" category="cell"><block ref="ad3b549c4b03e0598dee96d17d3ccc66" prefix="" category="inline-code"></block>: doit fonctionner comme root</block>
   <block id="2a90812fc13c49a77254684c5a3b5cb8" category="cell">Exécuter les commandes XCP en tant qu'utilisateur root</block>
@@ -115,8 +110,6 @@
   <block id="cb86540892d12e21880b91e51aae8225" category="inline-image-macro">Image de flux de travail XCP</block>
   <block id="33fed185b714f317f622abebb7d8d09e" category="paragraph"><block ref="33fed185b714f317f622abebb7d8d09e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a3100bf3334206028c894a5568ddcf09" category="summary">Décrit les nouvelles fonctionnalités, les notes de mise à niveau, les problèmes résolus, les limitations connues et les problèmes connus.</block>
-  <block id="539be75a76dadebbca3424b2f7b46bde" category="doc">Notes de version XCP v1.9</block>
-  <block id="0bd1668ea08c54bc067675d64e6f83a4" category="paragraph">Le <block ref="08ad1ee2f6369863d444accaa8181f3c" category="inline-link-macro-rx"></block> décrivez les nouvelles fonctionnalités, les notes de mise à niveau, les problèmes résolus, les limites connues et les problèmes connus.</block>
   <block id="dbd469acdcbd52648cb242bcfda6add3" category="paragraph">Vous devez vous connecter sur le site du support NetApp pour accéder aux notes de version.</block>
   <block id="8c1d67b3b1e3cf97c5f054bf8d66089c" category="summary">Planification de la migration des données SMB</block>
   <block id="f4eb381e275885c806213db1203bf102" category="paragraph">Planifiez les migrations de données SMB.</block>
@@ -377,10 +370,8 @@
   <block id="42f425824cc531c78175d67346f8f124" category="list-text">Utilisez le lien<block ref="e1fe6adfd56c8994795ceb238170e3b4" prefix=" " category="inline-code"></block> Pour accéder à l'interface graphique File Analytics. Lorsque vous y êtes invité, acceptez le certificat de sécurité :</block>
   <block id="d1b673b157daeb18c4d73618946f7ef4" category="list-text">Sélectionnez Avancé sous la déclaration de confidentialité.</block>
   <block id="d6d3a57c5e8a09cb5cc8bf5e2c0810ce" category="list-text">Sélectionnez Continuer<block ref="c40442705fd05f103d7897f22b0b9d54" prefix=" " category="inline-code"></block> lien.</block>
-  <block id="d92966d58b78d88161004cfe9020ede8" category="list-text">Connectez-vous à l’interface utilisateur graphique à l’aide du nom d’utilisateur « admin » et du mot de passe que vous avez défini lors de la configuration</block>
   <block id="2ffe186b43f4d120ec24b17fcb23452a" category="inline-image-macro">Ecran de connexion XCP File Analytics</block>
   <block id="289a5bc6b34705c66837c45715417ecd" category="paragraph"><block ref="289a5bc6b34705c66837c45715417ecd" category="inline-image-macro-rx" type="image"></block></block>
-  <block id="fefbdb3c0131ccf14272f959d23390d5" category="list-text">Lors de la connexion, vous pouvez voir que l'agent NFS est ajouté : une coche verte indique la configuration système minimale du système Linux et de la version XCP.</block>
   <block id="dcc65cd71fd805adc9f9914a4cf41d78" category="list-text">Si vous avez configuré un agent SMB, vous pouvez voir l'agent SMB ajouté dans la même carte agent.</block>
   <block id="c3a8cc04b10d225329206c08b5a0ebfd" category="summary">Ajout de serveurs de fichiers</block>
   <block id="0560ad7866ecc9115ae23021d424dbdf" category="doc">Ajouter des serveurs de fichiers</block>
@@ -752,4 +743,39 @@
   <block id="ef8cdecd9388166741c6ddeb9e648a30" category="sidebar">Configurer XCP</block>
   <block id="43f3f6a392074dfc63604c7b136e457f" category="sidebar">Configurez le fichier INI pour XCP NFS</block>
   <block id="d60c463bb4096f3ed4bd1618626dfe10" category="sidebar">Résoudre les problèmes</block>
+  <block id="bfccbf3e891050373f71f1230130222b" category="cell"><block ref="ad3b549c4b03e0598dee96d17d3ccc66" prefix="" category="inline-code"></block>: Comparer les lots : fichier d'index incompatible. Veuillez utiliser le fichier d'index généré avec la version actuelle de XCP uniquement. Vous pouvez également télécharger un fichier binaire XCP plus ancien à partir de xcp.netapp.com.</block>
+  <block id="481da41cf08734ac99d07aca58644781" category="cell"><block ref="6d7d8e19dacf4142870d92b873503ded" prefix="" category="inline-code"></block></block>
+  <block id="2dc9d74fea656209a3e6734b2bd09c40" category="cell">Si le chemin du fichier contient un point-virgule (:), utilisez trois points-virgules (:::) à la place.</block>
+  <block id="e9bef9a5a04a193f8f77a5867e82c24b" category="doc">Notes de version XCP v1.9.1</block>
+  <block id="a76dc4faed369cb6713d049dbc0ca400" category="paragraph">Le <block ref="5a4a1c694a80c57bbface50f0a4d4a69" category="inline-link-macro-rx"></block> décrivez les nouvelles fonctionnalités, les notes de mise à niveau, les problèmes résolus, les limites connues et les problèmes connus.</block>
+  <block id="410bc026d79ee8d7b9f82dd6b03feb98" category="list-text">Connectez-vous à l'interface graphique File Analytics.</block>
+  <block id="fce3933747223b348680fa7fa109330b" category="paragraph">Il existe deux façons de se connecter à l'interface graphique File Analytics :</block>
+  <block id="f54b0f1d442f1ec5a7de065a3541d957" category="list-text">Utilisez le nom d’utilisateur « admin » et le mot de passe que vous avez défini lors de la configuration.</block>
+  <block id="9232193990a75b1e49392f2b2617103d" category="list-text">Configurez et activez la fonctionnalité SSO (Single Sign-on) à l'échelle de l'entreprise.</block>
+  <block id="2e3c9f20aee1951e2d90c60c3895ab58" category="paragraph">Vous pouvez utiliser cette fonctionnalité de connexion pour configurer XCP File Analytics sur une machine donnée et partager l'URL de l'interface utilisateur Web à l'échelle de l'entreprise, ce qui permet aux utilisateurs de se connecter à l'interface utilisateur à l'aide de leurs informations d'identification SSO.</block>
+  <block id="69bb9c4e14480c847abc95d5c42499ad" category="admonition">La connexion SSO est facultative et peut être configurée et activée en permanence. Pour configurer la connexion SSO basée sur le langage SAML, reportez-vous à la section <block ref="24bd22f7d0a05b19a03434bac975689d" category="inline-xref-macro-rx"></block>.</block>
+  <block id="5011fee80695c860b0a39f97d0dcb95c" category="list-text">Une fois connecté, vous pouvez voir que l'agent NFS, une coche verte indiquant la configuration système minimale du système Linux et de la version XCP.</block>
+  <block id="bb589a1b8201c2239ba76232e361cafc" category="section-title">Configuration des informations d'identification SSO</block>
+  <block id="fffd3dfdf9fa53044cdb134dcc69c528" category="paragraph">La fonctionnalité de connexion SSO est implémentée dans XCP File Analytics à l'aide de SAML et est prise en charge avec le fournisseur d'identités ADFS (Active Directory Federation Services). SAML permet de décharger la tâche d'authentification du fournisseur d'identités tiers pour votre entreprise, qui peut utiliser n'importe quelle approche pour l'authentification multifacteur (MFA).</block>
+  <block id="f2d88d647c936a165a3e77edcbea1d96" category="list-text">Enregistrez l'application XCP File Analytics avec votre fournisseur d'identité d'entreprise.</block>
+  <block id="1f93f245c9251dd40bbdd43eacc5372c" category="paragraph">L'analytique de fichiers s'exécute désormais en tant que fournisseur de services et doit donc être enregistrée auprès de votre fournisseur d'identité d'entreprise. En général, une équipe de l'entreprise gère ce processus d'intégration SSO. La première étape consiste à rechercher et à contacter l'équipe concernée et à partager avec eux les informations de métadonnées de l'application File Analytics.</block>
+  <block id="2fa5a2b9e39c8c52b4712c4defadf219" category="paragraph">Les informations obligatoires que vous devez partager pour vous inscrire auprès de votre fournisseur d'identités sont les suivantes :</block>
+  <block id="9563382993688c51fdc3a46e81eb172f" category="list-text">*ID entité fournisseur de services :*<block ref="e1fe6adfd56c8994795ceb238170e3b4" prefix=" " category="inline-code"></block></block>
+  <block id="bf1e51171726684d1ee1b309557acd01" category="list-text">*URL du Service à la clientèle d'assertion de fournisseur de services (ACS) :*<block ref="21d0fedea22f326cba161956dc12f67c" prefix=" " category="inline-code"></block></block>
+  <block id="f57c5b8986c37b4a0952ba786b74f802" category="paragraph">Vous pouvez également vérifier ces détails en vous connectant à l'interface utilisateur File Analytics :</block>
+  <block id="80dae1bc5036b7e9bda13b9e72ac846e" category="list-text">Connectez-vous à l'interface utilisateur à l'aide du nom d'utilisateur "admin" et du mot de passe configurés lors de l'installation.</block>
+  <block id="ccd1f9a4a3996dec7dcc1222859ee8f1" category="list-text">Sélectionnez l'icône *utilisateur* dans le coin supérieur droit de la page, puis sélectionnez *Paramètres SAML*.</block>
+  <block id="363cae04551b1b1a61f8792a42d5332c" category="paragraph">Cochez *Paramètres fournisseur de services* dans le menu déroulant qui s'affiche.</block>
+  <block id="957c109b84ab3a9745776f942062afea" category="inline-image-macro">Paramètres SAML exemple</block>
+  <block id="82d38923543ba21104350ca2e054aed6" category="paragraph"><block ref="82d38923543ba21104350ca2e054aed6" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="231aa7872617b02f47d61c8a448d71d3" category="paragraph">Après l'enregistrement, vous recevez les détails du point de terminaison IDP pour votre entreprise. Vous devez fournir ces métadonnées de point de terminaison IDP à l'interface d'analyse des fichiers.</block>
+  <block id="0fabd32fee9ac3582435784332323cf0" category="list-text">Fournissez les détails du PDI :</block>
+  <block id="13cdf4657d47700947243dc2788b7179" category="list-text">Accédez à *Tableau de bord*. Sélectionnez l'icône *utilisateur* dans le coin supérieur droit de la page et sélectionnez *Paramètres SAML*.</block>
+  <block id="d8adeda321a41aaa17a27edc3b9f91af" category="list-text">Saisissez les détails IDP obtenus après l'enregistrement.</block>
+  <block id="632a19fe4f9dbcb608d0fc15adce1abd" category="inline-image-macro">Exemple de paramètre IDP</block>
+  <block id="d9f5a9253d4897150b89f01bd1fff5b8" category="paragraph"><block ref="d9f5a9253d4897150b89f01bd1fff5b8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="52a2204afc476b63dc6724a5bd0b634b" category="list-text">Cochez la case *Activer SAML* pour activer de façon permanente l'authentification SSO basée sur SAML.</block>
+  <block id="10492389e94efdebbb66f7b0cd8a1324" category="list-text">Sélectionnez *Enregistrer*.</block>
+  <block id="280adca2af76ab2f6d95dd020df20c76" category="list-text">Déconnectez-vous de File Analytics et reconnectez-vous.</block>
+  <block id="26fe07940d9a7bac7605ee7fc243d89a" category="paragraph">Vous êtes redirigé vers la page SSO de votre entreprise.</block>
 </blocks>
