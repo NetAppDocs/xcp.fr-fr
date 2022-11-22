@@ -974,7 +974,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-17 06:40:43 +0000">11/17/2022</time>
+    <time datetime="2022-11-22 08:07:30 +0000">11/22/2022</time>
     
   
 
@@ -984,6 +984,8 @@
 
 </p>
 
+<div id="preamble">
+<div class="sectionbody">
 <div class="paragraph lead">
 <p>File Analytics fournit une vue graphique des résultats de numérisation.</p>
 </div>
@@ -1019,18 +1021,137 @@ Pour consulter les navigateurs pris en charge pour accéder à File Analytics, r
 </div>
 </li>
 <li>
-<p>Connectez-vous à l’interface utilisateur graphique à l’aide du nom d’utilisateur « admin » et du mot de passe que vous avez défini lors de la configuration</p>
+<p>Connectez-vous à l&#8217;interface graphique File Analytics.</p>
+<div class="paragraph">
+<p>Il existe deux façons de se connecter à l&#8217;interface graphique File Analytics :</p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Utilisez le nom d’utilisateur « admin » et le mot de passe que vous avez défini lors de la configuration.</p>
 <div class="paragraph">
 <p><span class="image"><img src="./media/xcp_image2.png" alt="Ecran de connexion XCP File Analytics"></span></p>
 </div>
 </li>
 <li>
-<p>Lors de la connexion, vous pouvez voir que l&#8217;agent NFS est ajouté : une coche verte indique la configuration système minimale du système Linux et de la version XCP.</p>
+<p>Configurez et activez la fonctionnalité SSO (Single Sign-on) à l&#8217;échelle de l&#8217;entreprise.</p>
+<div class="paragraph">
+<p>Vous pouvez utiliser cette fonctionnalité de connexion pour configurer XCP File Analytics sur une machine donnée et partager l&#8217;URL de l&#8217;interface utilisateur Web à l&#8217;échelle de l&#8217;entreprise, ce qui permet aux utilisateurs de se connecter à l&#8217;interface utilisateur à l&#8217;aide de leurs informations d&#8217;identification SSO.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="admonitionblock note">
+<table>
+<tr>
+<td class="icon">
+<img src="/us-en/xcp/images/note.svg" alt="Note">
+</td>
+<td class="content">
+La connexion SSO est facultative et peut être configurée et activée en permanence. Pour configurer la connexion SSO basée sur le langage SAML, reportez-vous à la section  SSO credentials.
+</td>
+</tr>
+</table>
+</div>
+</li>
+<li>
+<p>Une fois connecté, vous pouvez voir que l&#8217;agent NFS, une coche verte indiquant la configuration système minimale du système Linux et de la version XCP.</p>
 </li>
 <li>
 <p>Si vous avez configuré un agent SMB, vous pouvez voir l&#8217;agent SMB ajouté dans la même carte agent.</p>
 </li>
 </ol>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="configuration-des-informations-didentification-sso">Configuration des informations d&#8217;identification SSO</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>La fonctionnalité de connexion SSO est implémentée dans XCP File Analytics à l&#8217;aide de SAML et est prise en charge avec le fournisseur d&#8217;identités ADFS (Active Directory Federation Services). SAML permet de décharger la tâche d&#8217;authentification du fournisseur d&#8217;identités tiers pour votre entreprise, qui peut utiliser n&#8217;importe quelle approche pour l&#8217;authentification multifacteur (MFA).</p>
+</div>
+<div class="olist arabic">
+<div class="title">Étapes</div>
+<ol class="arabic">
+<li>
+<p>Enregistrez l&#8217;application XCP File Analytics avec votre fournisseur d&#8217;identité d&#8217;entreprise.</p>
+<div class="paragraph">
+<p>L&#8217;analytique de fichiers s&#8217;exécute désormais en tant que fournisseur de services et doit donc être enregistrée auprès de votre fournisseur d&#8217;identité d&#8217;entreprise. En général, une équipe de l&#8217;entreprise gère ce processus d&#8217;intégration SSO. La première étape consiste à rechercher et à contacter l&#8217;équipe concernée et à partager avec eux les informations de métadonnées de l&#8217;application File Analytics.</p>
+</div>
+<div class="paragraph">
+<p>Les informations obligatoires que vous devez partager pour vous inscrire auprès de votre fournisseur d&#8217;identités sont les suivantes :</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><strong>ID entité fournisseur de services :</strong> <code>https://&lt;IP address of linux machine&gt;/xcp</code></p>
+</li>
+<li>
+<p><strong>URL du Service à la clientèle d&#8217;assertion de fournisseur de services (ACS) :</strong> <code>https://&lt;IP address of linux machine&gt;:5030/api/xcp/SAML/sp</code></p>
+<div class="paragraph">
+<p>Vous pouvez également vérifier ces détails en vous connectant à l&#8217;interface utilisateur File Analytics :</p>
+</div>
+<div class="olist lowerroman">
+<ol class="lowerroman" type="i">
+<li>
+<p>Connectez-vous à l&#8217;interface utilisateur à l&#8217;aide du nom d&#8217;utilisateur "admin" et du mot de passe configurés lors de l&#8217;installation.</p>
+</li>
+<li>
+<p>Sélectionnez l&#8217;icône <strong>utilisateur</strong> dans le coin supérieur droit de la page, puis sélectionnez <strong>Paramètres SAML</strong>.</p>
+<div class="paragraph">
+<p>Cochez <strong>Paramètres fournisseur de services</strong> dans le menu déroulant qui s&#8217;affiche.</p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/xcp_image18.png" alt="Paramètres SAML exemple"></span></p>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Après l&#8217;enregistrement, vous recevez les détails du point de terminaison IDP pour votre entreprise. Vous devez fournir ces métadonnées de point de terminaison IDP à l&#8217;interface d&#8217;analyse des fichiers.</p>
+</div>
+</li>
+<li>
+<p>Fournissez les détails du PDI :</p>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Accédez à <strong>Tableau de bord</strong>. Sélectionnez l&#8217;icône <strong>utilisateur</strong> dans le coin supérieur droit de la page et sélectionnez <strong>Paramètres SAML</strong>.</p>
+</li>
+<li>
+<p>Saisissez les détails IDP obtenus après l&#8217;enregistrement.</p>
+<div class="paragraph">
+<p><strong>Exemple</strong></p>
+</div>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p><span class="image"><img src="./media/xcp_image19.png" alt="Exemple de paramètre IDP"></span></p>
+</div>
+<div class="olist loweralpha">
+<ol class="loweralpha" type="a">
+<li>
+<p>Cochez la case <strong>Activer SAML</strong> pour activer de façon permanente l&#8217;authentification SSO basée sur SAML.</p>
+</li>
+<li>
+<p>Sélectionnez <strong>Enregistrer</strong>.</p>
+</li>
+<li>
+<p>Déconnectez-vous de File Analytics et reconnectez-vous.</p>
+<div class="paragraph">
+<p>Vous êtes redirigé vers la page SSO de votre entreprise.</p>
+</div>
+</li>
+</ol>
+</div>
+</li>
+</ol>
+</div>
+</div>
 </div>
 
     </article>

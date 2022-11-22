@@ -974,7 +974,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-17 06:40:43 +0000">11/17/2022</time>
+    <time datetime="2022-11-22 08:07:30 +0000">11/22/2022</time>
     
   
 
@@ -1007,7 +1007,7 @@
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xcp: ERROR</code>: Fichier d&#8217;index incompatible. Veuillez utiliser le fichier d&#8217;index généré avec la version actuelle de XCP uniquement. Vous pouvez aussi télécharger un fichier binaire XCP plus ancien à partir de xcp.netapp.com.</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xcp: ERROR</code>: Comparer les lots : fichier d&#8217;index incompatible. Veuillez utiliser le fichier d&#8217;index généré avec la version actuelle de XCP uniquement. Vous pouvez également télécharger un fichier binaire XCP plus ancien à partir de xcp.netapp.com.</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Vous essayez d&#8217;effectuer des opérations sur un index qui a été généré à l&#8217;aide d&#8217;une version XCP antérieure à XCP 1.9. Cette opération n&#8217;est pas prise en charge. Il est recommandé d&#8217;effectuer toutes les migrations en cours, puis de basculer vers cette version de XCP. Vous pouvez également exécuter à nouveau le <code>scan</code>, <code>copy</code> ou <code>verify</code> Commandes permettant de générer un nouvel index avec XCP 1.9.</p></td>
 </tr>
 <tr>
@@ -1123,6 +1123,10 @@
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock"><code>xcp: ERROR: batch 2: child process failed (exit code -6): recv &lt;type 'exceptions.EOFError'&gt;:</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">Augmentez la mémoire système et relancez le test.</p></td>
+</tr>
+<tr>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><code>xcp:ERROR: invalid path 'IP:/users009/user1/2022-07-01_04:36:52_1489367</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">Si le chemin du fichier contient un point-virgule (:), utilisez trois points-virgules (:::) à la place.</p></td>
 </tr>
 </tbody>
 </table>
