@@ -778,4 +778,10 @@
   <block id="10492389e94efdebbb66f7b0cd8a1324" category="list-text">Sélectionnez *Enregistrer*.</block>
   <block id="280adca2af76ab2f6d95dd020df20c76" category="list-text">Déconnectez-vous de File Analytics et reconnectez-vous.</block>
   <block id="26fe07940d9a7bac7605ee7fc243d89a" category="paragraph">Vous êtes redirigé vers la page SSO de votre entreprise.</block>
+  <block id="c1f4df75471b19c987dbe105102a06b3" category="paragraph-title">Configurez un connecteur HDFS</block>
+  <block id="e8ecd4ac92f1665c72c96cf750e9a180" category="paragraph-title">Syntaxe du chemin</block>
+  <block id="71b54d34b9a2e562b60a5f348143df04" category="paragraph-title">Configurer l'évolutivité horizontale multi-nœuds</block>
+  <block id="e275d5c35bd98d51f375595425721b8e" category="paragraph-title">MaxStartups</block>
+  <block id="4fc18ed56b82e48babebaac5b07abd72" category="paragraph-title">Le fichier nodes.ini"</block>
+  <block id="08ad268a318e49778022d6aa0d84e057" category="paragraph-title">Combinaison de connecteurs POSIX et HDFS, d'une évolutivité scale-out multi-nœuds et de fonctions de sécurité</block>
 </blocks>

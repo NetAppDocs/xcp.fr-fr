@@ -43,7 +43,7 @@ Vous pouvez utiliser cette fonctionnalité de connexion pour configurer XCP File
 
 +
 
-NOTE: La connexion SSO est facultative et peut être configurée et activée en permanence. Pour configurer la connexion SSO basée sur le langage SAML, reportez-vous à la section  SSO credentials.
+NOTE: La connexion SSO est facultative et peut être configurée et activée en permanence. Pour configurer la connexion SSO basée sur le langage SAML, reportez-vous à la section <<Configuration des informations d'identification SSO>>.
 
 
 
