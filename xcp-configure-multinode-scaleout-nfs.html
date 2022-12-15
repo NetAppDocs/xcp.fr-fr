@@ -974,7 +974,7 @@
 <p class="page-details">
   
     
-    <time datetime="2022-11-17 06:40:43 +0000">11/17/2022</time>
+    <time datetime="2022-12-14 18:10:41 +0000">12/14/2022</time>
     
   
 
@@ -988,6 +988,7 @@
 <p>Pour XCP NFS, vous pouvez surmonter les limites de performance d&#8217;un nœud unique en utilisant un seul <code>copy</code> (ou <code>scan -md5</code>) Commande permettant d&#8217;exécuter des travailleurs sur plusieurs systèmes Linux ou nœuds de cluster.</p>
 </div>
 <div class="paragraph">
+<div class="title">Fonctionnalités prises en charge</div>
 <p>Le scale-out multi-nœuds est utile dans n&#8217;importe quel environnement où la performance d&#8217;un seul système n&#8217;est pas suffisante, par exemple dans les scénarios suivants :</p>
 </div>
 <div class="ulist">
@@ -1004,9 +1005,11 @@
 </ul>
 </div>
 <div class="paragraph">
+<div class="title">Syntaxe du chemin</div>
 <p>La syntaxe de chemin pour l&#8217;évolutivité scale-out multi-nœuds est <code>--nodes worker1,worker2,worker3</code>.</p>
 </div>
 <div class="paragraph">
+<div class="title">Configurer l&#8217;évolutivité horizontale multi-nœuds</div>
 <p>Envisagez une configuration avec quatre hôtes Linux aux configurations CPU et RAM similaires. Vous pouvez utiliser les quatre hôtes pour la migration, car XCP peut coordonner les opérations de copie sur tous les nœuds hôtes. Pour utiliser ces nœuds dans un environnement scale-out, vous devez identifier l&#8217;un des quatre nœuds en tant que nœud principal et les autres nœuds en tant que nœuds worker. Par exemple, pour une configuration Linux à quatre noeuds, nommez les noeuds comme "maître", "worker1", "worker2" et "worker3", puis configurez la configuration sur le noeud maître :</p>
 </div>
 <div class="olist arabic">
@@ -1045,6 +1048,7 @@
 <p>Le nœud maître XCP utilise SSH pour exécuter des travailleurs sur d&#8217;autres nœuds. Vous devez configurer les nœuds worker pour activer un accès SSH sans mot de passe pour l&#8217;utilisateur exécutant XCP sur le noeud maître. Par exemple, pour permettre à un utilisateur de démonstration sur un noeud maître d&#8217;utiliser le noeud "worker1" comme nœud de travail XCP, vous devez copier le binaire XCP du noeud maître vers tous les noeuds de travail dans le répertoire de base.</p>
 </div>
 <div class="paragraph">
+<div class="title">MaxStartups</div>
 <p>Lorsque vous démarrez plusieurs travailleurs XCP simultanément, pour éviter les erreurs, vous devez augmenter le <code>sshd MaxStartups</code> paramètre sur chaque nœud de travail comme indiqué dans l&#8217;exemple suivant :</p>
 </div>
 <div class="listingblock">
@@ -1054,6 +1058,7 @@ sudo systemctl restart sshd</pre>
 </div>
 </div>
 <div class="paragraph">
+<div class="title">Le fichier nodes.ini"</div>
 <p>Lorsque XCP exécute un worker sur un nœud de cluster, le processus worker hérite des variables d&#8217;environnement du processus XCP principal sur le nœud maître. Pour personnaliser un environnement de nœud particulier, vous devez définir les variables dans le <code>nodes.ini</code> fichier dans le répertoire de configuration uniquement sur le nœud maître (les nœuds de travail ne disposent pas d&#8217;un répertoire de configuration ou d&#8217;un catalogue). Par exemple, pour un serveur ubuntu mars qui a son <code>libjvm.so</code> Dans un autre emplacement du nœud maître, tel que Wave (qui est CentOS), il faut un répertoire de configuration pour permettre à un employé sur mars d&#8217;utiliser le connecteur HDFS. Cette configuration est illustrée dans l&#8217;exemple suivant :</p>
 </div>
 <div class="listingblock">
@@ -1070,6 +1075,7 @@ amd64/server/libjvm.so</pre>
 <p>Lorsque XCP s&#8217;exécute sur un nœud de travail, le nœud de travail n&#8217;a pas de configuration locale (pas de licence, de fichiers journaux ou de catalogue). XCP binaire uniquement est requis sur le système de votre répertoire personnel. Par exemple, pour exécuter l' <code>copy</code> commande, le nœud maître et tous les nœuds workers doivent avoir accès à la source et à la destination. Pour <code>xcp copy --nodes linux1,linux2 hdfs:///user/demo/test file:///mnt/ontap</code>, le <code>linux1</code> et <code>linux2</code> Les hôtes doivent avoir le logiciel client HDFS configuré et l&#8217;exportation NFS montée sur /mnt/ontap, et, comme mentionné précédemment, une copie du binaire XCP dans le répertoire local.</p>
 </div>
 <div class="paragraph">
+<div class="title">Combinaison de connecteurs POSIX et HDFS, d&#8217;une évolutivité scale-out multi-nœuds et de fonctions de sécurité</div>
 <p>Vous pouvez combiner les connecteurs POSIX et HDFS, l&#8217;évolutivité horizontale multinœud et les fonctions de sécurité. Par exemple <code>copy</code> et <code>verify</code> Les commandes combinent des connecteurs POSIX et HDFS avec la sécurité et les fonctionnalités scale-out :</p>
 </div>
 <div class="ulist">
