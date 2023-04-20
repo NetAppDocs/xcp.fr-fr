@@ -46,6 +46,9 @@ Les fonctionnalités suivantes ne sont pas prises en charge sur XCP NFS :
 
 
 | Linux | XCP n'est plus pris en charge sur des distributions antérieures de Linux qui étaient prises en charge par XCP 1.6.3. 
+
+
+| Prise en charge des sources actives | XCP ne prend pas en charge l'association d'opérations de copie Snapshot de base ou incrémentielles avec des migrations de source directe. 
 |===
 Les fonctionnalités suivantes ne sont pas prises en charge sur XCP SMB :
 
@@ -69,7 +72,7 @@ Les fonctionnalités suivantes ne sont pas prises en charge sur XCP SMB :
 | Filtres XCP | L'option d'exclusion XCP SMB exclut actuellement les répertoires en fonction de leur modèle dans le filtre et traverse le système de fichiers de ces répertoires. 
 
 
-| Prise en charge des sources actives | XCP ne prend pas en charge l'utilisation d'une copie de base ou d'une copie Snapshot incrémentielle suivie d'une migration en direct de source pour une synchronisation incrémentielle. 
+| Migration de la source en direct | XCP ne prend pas en charge la modification des données sur le volume source pendant la migration. 
 |===
 Les fonctionnalités communes suivantes ne sont pas disponibles pour XCP NFS et SMB :
 

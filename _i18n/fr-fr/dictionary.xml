@@ -187,7 +187,6 @@
   <block id="f4915fbc2a7713a0eeea8adce10091de" category="cell">Filtres XCP</block>
   <block id="ca2e34fd1c2de7fa4ca5bb236706760b" category="cell">L'option d'exclusion XCP SMB exclut actuellement les répertoires en fonction de leur modèle dans le filtre et traverse le système de fichiers de ces répertoires.</block>
   <block id="76e35710ec65c5c13523e53f9290946d" category="cell">Prise en charge des sources actives</block>
-  <block id="4df0ea8d6ab650858ac62da3aa9f0f41" category="cell">XCP ne prend pas en charge l'utilisation d'une copie de base ou d'une copie Snapshot incrémentielle suivie d'une migration en direct de source pour une synchronisation incrémentielle.</block>
   <block id="abef06ad7d7930b60b54d21ecda87d96" category="paragraph">Les fonctionnalités communes suivantes ne sont pas disponibles pour XCP NFS et SMB :</block>
   <block id="67563b580602624cbe59ec4a7939e8fe" category="list-text">*XCP multiple instances sur le même hôte*: Lors de l'exécution de plusieurs instances de XCP sur le même hôte, vous pourriez obtenir des résultats imprévisibles.</block>
   <block id="163e080f44afc4f1a3717f3330b0859b" category="list-text">*Temps de migration complet*: XCP amont ne fournit pas le temps de terminer la migration ou le temps de terminer toute commande utilisée pour la migration. Si vous effectuez la mise en service finale, vérifiez que la perte de données sur le volume source est faible.</block>
@@ -784,4 +783,7 @@
   <block id="e275d5c35bd98d51f375595425721b8e" category="paragraph-title">MaxStartups</block>
   <block id="4fc18ed56b82e48babebaac5b07abd72" category="paragraph-title">Le fichier nodes.ini"</block>
   <block id="08ad268a318e49778022d6aa0d84e057" category="paragraph-title">Combinaison de connecteurs POSIX et HDFS, d'une évolutivité scale-out multi-nœuds et de fonctions de sécurité</block>
+  <block id="c7d37295c1bdef1e9ae306db70634663" category="cell">XCP ne prend pas en charge l'association d'opérations de copie Snapshot de base ou incrémentielles avec des migrations de source directe.</block>
+  <block id="dbef0b1dd5263aa13674ecebca1b7756" category="cell">Migration de la source en direct</block>
+  <block id="93571d5812c4c39edcca3e27487acbe9" category="cell">XCP ne prend pas en charge la modification des données sur le volume source pendant la migration.</block>
 </blocks>
