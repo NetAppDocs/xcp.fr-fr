@@ -42,9 +42,6 @@ Les fonctionnalités suivantes ne sont pas prises en charge sur XCP NFS :
 
 
 
-| ACL | Lorsque la source est un système non-NetApp, XCP ne copie pas les ACL. 
-
-
 | Linux | XCP n'est plus pris en charge sur des distributions antérieures de Linux qui étaient prises en charge par XCP 1.6.3. 
 
 
