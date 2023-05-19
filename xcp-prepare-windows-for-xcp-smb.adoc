@@ -22,7 +22,7 @@ XCP SMB utilise les systèmes hôtes client Windows pour générer des flux d'E/
 
 Les transitions et les migrations SMB de XCP présentent les exigences de connexion utilisateur suivantes :
 
-* Système hôte XCP : un utilisateur hôte XCP doit disposer d'un privilège administrateur (l'utilisateur doit faire partie du groupe "BUILTIN\Administrators" sur le système hôte XCP SMB).
+* Système hôte XCP : un utilisateur hôte XCP doit avoir le privilège d'administrateur (l'utilisateur doit faire partie du groupe « BUILTIN\Administrators » sur le serveur SMB cible).
 * Ajoutez l'utilisateur hôte de migration ou XCP à la stratégie de journalisation d'audit et de sécurité d'Active Directory. Pour localiser la stratégie de gestion de l'audit et du journal de sécurité sur Windows 10, procédez comme suit :
 +
 .Étapes

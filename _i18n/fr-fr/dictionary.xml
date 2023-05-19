@@ -130,7 +130,6 @@
   <block id="66f9acc1b514e86b97784fe390326ce3" category="paragraph">XCP SMB utilise les systèmes hôtes client Windows pour générer des flux d'E/S parallèles et exploiter entièrement la performance du réseau et du stockage disponibles.</block>
   <block id="d25223f4065ca21361aff2e7cdc61203" category="section-title">Configurer le stockage</block>
   <block id="c8fe60bf1229083e3bb54f5366226e26" category="paragraph">Les transitions et les migrations SMB de XCP présentent les exigences de connexion utilisateur suivantes :</block>
-  <block id="511057ab7032e10b44554037f83be0f0" category="list-text">Système hôte XCP : un utilisateur hôte XCP doit disposer d'un privilège administrateur (l'utilisateur doit faire partie du groupe "BUILTIN\Administrators" sur le système hôte XCP SMB).</block>
   <block id="543905c9e8d793e24798d62739fd285b" category="list-text">Ajoutez l'utilisateur hôte de migration ou XCP à la stratégie de journalisation d'audit et de sécurité d'Active Directory. Pour localiser la stratégie de gestion de l'audit et du journal de sécurité sur Windows 10, procédez comme suit :</block>
   <block id="efaadd4be852741a24b28d66addf7e17" category="list-text">Ouvrez la boîte de dialogue *Group Policy Editor*.</block>
   <block id="58f61041ffa1d14e245af8a57dce1c48" category="list-text">Accédez à *Configuration de l'ordinateur &gt; Paramètres Windows &gt; Paramètres de sécurité &gt; stratégies locales &gt; affectation des droits de l'utilisateur*.</block>
@@ -173,8 +172,6 @@
   <block id="90637cbab382a9675c5bad0c7aeef15f" category="cell">Connecteur HDFS (Hadoop Distributed File System)</block>
   <block id="b03665438ed7a747020c197d671b61c3" category="list-text">Le<block ref="63ad9d34f3503826e5f649ae6b7ac92c" prefix=" " category="inline-code"></block> La commande ne prend pas en charge le connecteur HDFS</block>
   <block id="f5f0878108a9a99caae85df13ed2e0ac" category="list-text">Le système de fichiers HDFS ne prend pas en charge les liens symboliques (symlinks), les liens matériels ou les fichiers spéciaux</block>
-  <block id="3fabfbd2744533c3c888e15445477652" category="cell">ACL</block>
-  <block id="3706b1828c935d3a1a30b30080320b22" category="cell">Lorsque la source est un système non-NetApp, XCP ne copie pas les ACL.</block>
   <block id="edc9f0a5a5d57797bf68e37364743831" category="cell">Linux</block>
   <block id="bd2cc77640d48204c25994ade9373d0d" category="cell">XCP n'est plus pris en charge sur des distributions antérieures de Linux qui étaient prises en charge par XCP 1.6.3.</block>
   <block id="577d13f7684f9c1dad51523d52a28bf9" category="paragraph">Les fonctionnalités suivantes ne sont pas prises en charge sur XCP SMB :</block>
@@ -786,4 +783,5 @@
   <block id="c7d37295c1bdef1e9ae306db70634663" category="cell">XCP ne prend pas en charge l'association d'opérations de copie Snapshot de base ou incrémentielles avec des migrations de source directe.</block>
   <block id="dbef0b1dd5263aa13674ecebca1b7756" category="cell">Migration de la source en direct</block>
   <block id="93571d5812c4c39edcca3e27487acbe9" category="cell">XCP ne prend pas en charge la modification des données sur le volume source pendant la migration.</block>
+  <block id="61355ec3f68ee20926a222027dcb3d7b" category="list-text">Système hôte XCP : un utilisateur hôte XCP doit avoir le privilège d'administrateur (l'utilisateur doit faire partie du groupe « BUILTIN\Administrators » sur le serveur SMB cible).</block>
 </blocks>
