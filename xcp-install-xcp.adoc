@@ -4,7 +4,7 @@ permalink: xcp-install-xcp.html
 keywords: netapp, xcp, install, installing, download, downloading, license, preparing, system 
 summary: Installer XCP 
 ---
-= Installer XCP
+= Préparez l'installation de XCP
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Installer XCP
 
 
 [role="lead"]
-Installer XCP.
+En préparation de l'installation, vous téléchargez XCP, obtenez une licence et préparez votre système.
 
 
 

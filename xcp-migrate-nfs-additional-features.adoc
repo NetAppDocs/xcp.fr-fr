@@ -58,3 +58,25 @@ xcp chown -user-from user1 -user user2 file:///mnt/nfs_mount_point/
 xcp chown -group-from group1 -group group2 nfs_server01.netapp.com:/export1/
 ....
 Exécutez le `xcp help chown` commande pour plus d'informations.
+
+
+
+== Estimation XCP
+
+La fonction d'estimation XCP estime le temps nécessaire pour terminer une référence `copy` opération de la source à la destination. Il calcule le temps estimé pour terminer une ligne de base `copy` Fonctionnement à l'aide de toutes les ressources système actuellement disponibles, telles que la CPU, la RAM, le réseau ou d'autres paramètres. Lorsque vous utilisez le `-target` XCP exécute un exemple d'opération de copie pour trouver le temps d'estimation.
+
+*Exemple*
+
+....
+server : NFS server IP
+export : NFS exported path for the above IP
+
+xcp static estimation
+xcp estimate -id <scan id>
+
+xcp live estimation with default time
+xcp estimate -id <scan id> -target server:/export
+
+xcp live estimation with -t option
+xcp estimate -id <scan id> -t <time for which estimation should run> -target server:/export
+....

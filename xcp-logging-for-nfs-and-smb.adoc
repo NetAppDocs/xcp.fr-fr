@@ -56,7 +56,7 @@ Les options du fichier de configuration JSON sont sensibles à la casse. Ces opt
 | journal d'événements |  |  | Option de configuration du message du journal des événements. 
 
 
-| « Sous activation » | Booléen | faux | Cette option booléenne est utilisée pour activer la messagerie d'événement. Réglage sur `false` ne génère aucun message d'événement et aucun journal d'événements ne sera publié dans le fichier journal d'événements. 
+| « Sous activation » | Booléen | vrai | Cette option booléenne est utilisée pour activer la messagerie d'événement. Réglage sur `false` ne génère aucun message d'événement et aucun journal d'événements ne sera publié dans le fichier journal d'événements. 
 
 
 | “niveau” | Chaîne | INFO | Niveau de filtre de gravité du message d'événement. La messagerie d'événements prend en charge cinq niveaux de gravité par ordre décroissant de gravité : CRITIQUE, ERREUR, AVERTISSEMENT, INFO, DÉBOGAGE 

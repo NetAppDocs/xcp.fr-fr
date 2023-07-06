@@ -20,7 +20,9 @@ Planifier les migrations de données NFS.
 
 == Afficher
 
-Le `show` Commande interroge les services RPC et les exportations NFS d'un ou plusieurs serveurs de stockage. La commande répertorie les services et exportations disponibles avec la capacité utilisée et libre de chaque exportation, suivie des attributs racine de chaque exportation. Exemple :
+Le `show` Commande interroge les services RPC et les exportations NFS d'un ou plusieurs serveurs de stockage. La commande répertorie les services et exportations disponibles avec la capacité utilisée et libre de chaque exportation, suivie des attributs racine de chaque exportation.
+
+*Exemple:*
 
 * `xcp show <NFS file server IP/FQDN>`
 * `xcp show nfs_server01.netapp.com`
@@ -32,12 +34,13 @@ Courez `xcp help show` pour en savoir plus.
 
 == Analyser
 
-Le `scan` La commande analyse de manière récursive l'ensemble des chemins exportés par NFSv3 source et imprime les statistiques de la structure de fichiers à la fin de l'analyse. NetApp recommande de placer les montages d'exportation NFS source en mode lecture seule pendant l'analyse. Exemple :
+Le `scan` La commande analyse de manière récursive l'ensemble des chemins exportés par NFSv3 source et imprime les statistiques de la structure de fichiers à la fin de l'analyse. NetApp recommande de placer les montages d'exportation NFS source en mode lecture seule pendant l'analyse.
 
-* `xcp scan NFS [server:/export path | \file://<NFS mounted path> | hdfs://<hdfs mounted path> ]`
+*Exemple:*
+
+* `xcp scan NFS [server:/export path | file:// ]`
 * `xcp scan nfs_server01.netapp.com:/export1`
 * `xcp scan \file:///mnt/nfs-source`
-* `xcp scan hdfs:///demo/user1`
 
 
 Courez `xcp help scan` pour en savoir plus.

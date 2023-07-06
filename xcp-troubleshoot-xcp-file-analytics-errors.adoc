@@ -81,4 +81,36 @@ Exécutez à nouveau le programme de configuration et sélectionnez l'option d'i
 
 
 | L'espace total d'un système de fichiers exporté sur un serveur de fichiers donné peut afficher plus d'espace que le stockage physique alloué. | Cela peut se produire lors d'exportations de niveau qtree à l'intérieur du volume. Par exemple, si la taille du volume exportée en tant que `/vol1` Est de 10 Go et il y a un qtree dans le volume `/vol1/qtree1`, puis le `xcp show` affiche la commande `vol1` taille as `10 GB` et le `qtree1` taille as `10 GB`. XCP File Analytics résume l'espace des deux exportations et donne l'espace total, dans ce cas, `20 GB`. Il ne comprend pas cela `qtree1` est un espace logique. 
+
+
+| Impossible d'accéder au site ou échec de la connexion de l'utilisateur après une installation réussie.  a| 
+. Vérifier si les services XCP sont en cours d'exécution :
+`service xcp status`
+. Lancer l'opération d'écoute XCP et confirmer qu'il n'y a pas d'erreur :
++
+`xcp –listen`
+
+. Si l'erreur suivante s'affiche, installez les packages CodeReady à l'aide de yum, par exemple `yum install codeready-builder-for-rhel-8-x86_64-rpms`:
+
+
+[listing]
+----
+Error:
+-------
+Traceback (most recent call last):
+  File "xcp.py", line 1146, in <module>
+  File "xcp.py", line 1074, in main
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "PyInstaller/loader/pyimod03_importers.py", line 495, in exec_module
+  File "rest/routes.py", line 61, in <module>
+  File "<frozen importlib._bootstrap>", line 991, in _find_and_load
+  File "<frozen importlib._bootstrap>", line 975, in _find_and_load_unlocked
+  File "<frozen importlib._bootstrap>", line 671, in _load_unlocked
+  File "PyInstaller/loader/pyimod03_importers.py", line 495, in exec_module
+  File "onelogin/saml2/auth.py", line 14, in <module>
+xmlsec.Error: (1, 'cannot load crypto library for xmlsec.')
+[23891] Failed to execute script 'xcp' due to unhandled exception!
+----
 |===

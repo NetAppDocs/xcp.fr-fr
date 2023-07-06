@@ -46,6 +46,9 @@ Les fonctionnalités suivantes ne sont pas prises en charge sur XCP NFS :
 
 
 | Prise en charge des sources actives | XCP ne prend pas en charge l'association d'opérations de copie Snapshot de base ou incrémentielles avec des migrations de source directe. 
+
+
+| Migration de NFS vers S3 | XCP ne prend pas en charge la migration de NFS vers S3. 
 |===
 Les fonctionnalités suivantes ne sont pas prises en charge sur XCP SMB :
 
@@ -70,12 +73,34 @@ Les fonctionnalités suivantes ne sont pas prises en charge sur XCP SMB :
 
 
 | Migration de la source en direct | XCP ne prend pas en charge la modification des données sur le volume source pendant la migration. 
+
+
+| Plusieurs instances de XCP sur un même hôte | Lorsque vous exécutez plusieurs instances de XCP sur un même hôte, vous risquez d'obtenir des résultats imprévisibles. 
 |===
 Les fonctionnalités communes suivantes ne sont pas disponibles pour XCP NFS et SMB :
 
-* *XCP multiple instances sur le même hôte*: Lors de l'exécution de plusieurs instances de XCP sur le même hôte, vous pourriez obtenir des résultats imprévisibles.
 * *Temps de migration complet*: XCP amont ne fournit pas le temps de terminer la migration ou le temps de terminer toute commande utilisée pour la migration. Si vous effectuez la mise en service finale, vérifiez que la perte de données sur le volume source est faible.
 * *L'exécution de la copie sur une cible non nettoyée*: La copie de base XCP échoue lorsqu'il y a des données partielles sur la cible de destination. Pour une copie de base XCP réussie et une vérification XCP, la destination doit être propre.
 * *Destination Live*: XCP ne prend pas en charge la modification des données sur le volume de destination pendant une migration ou pendant une synchronisation incrémentielle.
 * *Utilisateur non-root pour File Analytics*: XCP ne prend pas en charge les installations et les configurations effectuées par un utilisateur non-root ou un utilisateur sudo.
+
+
+Les fonctionnalités suivantes ne sont pas disponibles pour les connecteurs HDFS (Hadoop Distributed File System) :
+
+[cols="2*"]
+|===
+| Nom de la fonction | Description 
+
+
+| Prise en charge du `sync` commande | Le connecteur HDFS ne prend pas en charge `sync` commande. 
+
+
+| Lien symbolique (lien symbolique) et support de lien dur | Le système de fichiers HDFS ne prend pas en charge les liens symboliques, les liens physiques ou les fichiers spéciaux. 
+
+
+| Migration HDFS en direct | XCP ne prend pas en charge la modification des données sur le système de fichiers HDFS à la source pendant la migration 
+|===
+Les fonctionnalités suivantes ne sont pas disponibles pour les connecteurs simple Storage Service (S3) :
+
+* *Migration avec un compartiment S3 comme source* : XCP ne prend pas en charge la migration avec un compartiment S3 comme source.
 

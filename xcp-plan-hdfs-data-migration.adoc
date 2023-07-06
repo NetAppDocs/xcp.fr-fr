@@ -1,0 +1,31 @@
+---
+sidebar: sidebar 
+permalink: xcp-plan-hdfs-data-migration.html 
+keywords: netapp, xcp, plan, planning, data, migration, migrate, migrating, hdfs, file, analytics 
+summary: Planification des migrations de données NFS 
+---
+= Planifiez la migration des données HDFS
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Planifiez vos migrations de données HDFS.
+
+
+
+== Analyser
+
+Le `scan` la commande analyse de manière récursive l'ensemble des chemins source et imprime les statistiques de la structure de fichiers à la fin du scan.
+
+* `xcp scan HDFS [hdfs://<hdfs mounted path> ]`
+* `xcp scan hdfs:///demo/user1`
+* `xcp scan s3://my-bucket`
+* `xcp scan -s3.profile <s3 profile name> -s3.endpoint <endpoint-url> s3://my-bucket`
+
+
+Courez `xcp help scan` pour en savoir plus.

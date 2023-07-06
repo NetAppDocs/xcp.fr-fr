@@ -60,9 +60,7 @@ Le `verify` command lit à la fois les partages source et cible et les compare, 
 
 [NOTE]
 ====
-* Pendant l'opération de vérification, vous pouvez utiliser le `-preserve-atime` avec le `verify` pour préserver l'heure d'accès à la source.
-* Pendant l'opération de vérification, vous pouvez utiliser le `-noatime` avec le `verify` commande pour exclure les différences de temps d'accès.
-
+Pendant l'opération de vérification, vous pouvez utiliser le `-preserve-atime` avec le `verify` pour préserver l'heure d'accès à la source.
 
 ====
 *Exemple:*

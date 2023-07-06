@@ -40,7 +40,7 @@ NOTE: Il n'existe pas d'option de mise à niveau ; réinstallez XCP pour remplac
 | Version de protocole prise en charge | Toutes les versions du protocole SMB 
 
 
-| Navigateur pris en charge (analyse de fichiers uniquement) | XCP File Analytics prend en charge Google Chrome version 76 et ultérieure. Consultez la matrice IMT pour connaître toutes les versions prises en charge par le navigateur 
+| Navigateur pris en charge (analyse de fichiers uniquement) | Reportez-vous à la link:https://mysupport.netapp.com/matrix/["IMT"^] Matrice pour toutes les versions de navigateur prises en charge pour XCP File Analytics. 
 |===
 
 

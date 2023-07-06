@@ -1,0 +1,78 @@
+---
+sidebar: sidebar 
+permalink: xcp-run-multiple-jobs-on-same-host.html 
+keywords: xcp, configure, nfs, posix, connector 
+summary: 'Le connecteur POSIX permet à XCP d"accéder à tout système de fichiers monté sur Linux, tel que NFSv4, XFS et Veritas.' 
+---
+= Exécutez plusieurs travaux XCP sur le même hôte XCP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+À partir de XCP 1.9.2, vous pouvez utiliser la fonctionnalité « -minmem » pour exécuter plusieurs tâches ou commandes XCP sur un seul hôte XCP, à condition que l'hôte dispose de ressources suffisantes pour chaque travail. Lorsque vous exécutez une commande qui prend en charge la fonction « -minmem », XCP utilise une mémoire hôte minimale pour terminer la tâche, ce qui crée la capacité d'exécuter des tâches supplémentaires sur la même configuration hôte.
+
+
+
+== Configuration minimale requise
+
+Pour chaque tâche XCP, vous devez prévoir jusqu'à 64 Go de mémoire hôte et huit cœurs pour les migrations de moyenne à grande échelle.
+
+
+NOTE: La fonctionnalité « -minmem » n'est pas prise en charge pour la migration de données SMB.
+
+
+
+== Journalisation
+
+Par défaut, chaque travail XCP est consigné dans un fichier journal distinct qui est unique à l'ID du travail. Ce mécanisme de journalisation fonctionne bien lors de l'exécution de plusieurs tâches sur le même hôte individuel. NetApp ne recommande pas de modifier le `xcpLogConfig.Json` pour utiliser un seul fichier `xcp.log` Fichier permettant de consigner plusieurs travaux XCP s'exécutant en parallèle sur le même hôte.
+
+
+
+== Commandes prises en charge
+
+La fonctionnalité « -minmem » est prise en charge avec les commandes XCP suivantes :
+
+* `scan`
+* `copy`
+* `resume`
+* `verify`
+* `isync`
+* `chmod`
+* `chown`
+* `delete`
+
+
+
+
+== Commandes non prises en charge
+
+La fonction « -minmem » n'est pas prise en charge par le `sync` commande.
+
+
+
+== Exemples de commandes
+
+Pour utiliser la fonction "-minmem", vous devez inclure l'option "-minmem" dans la commande XCP comme indiqué dans les exemples suivants :
+
+* `xcp copy -newid _new ID_ *-minmem* src_server:/src_export dst_server:/dst_export`
+* `xcp resume [options] -id *-minmem* _copy ID_`
+* `xcp verify *-minmem* src_server:/src_export dst_server:/dst_export`
+
+
+*Exemples de chemin HDFS* :
+
+* `xcp copy *-minmem* hdfs:///user/demo1/data \file:///user/demo1/dest`
+* `xcp verify *-minmem* hdfs:///user/demo1/data \file:///user/demo1/dest`
+* `xcp copy -minmem hdfs:///user/demo1/data s3://bucket1`
+
+
+*Exemples de chemin POSIX* :
+
+* `xcp copy *-minmem* -newid _new ID_ \file:///mnt/source \file:///mnt/dest`
+* `xcp verify *-minmem* \file:///mnt/source \file:///mnt/dest`
+

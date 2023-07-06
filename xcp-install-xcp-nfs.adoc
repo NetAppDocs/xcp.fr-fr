@@ -22,7 +22,7 @@ Si vous voulez mettre à niveau XCP, supprimez l'installation actuelle et rempla
 | Élément | Conditions requises 
 
 
-| Système | Serveur Intel ou AMD 64 bits, 4 cœurs minimum et 32 Go de RAM 
+| Système | Serveur Intel ou AMD 64 bits, 8 cœurs minimum et 64 Go de RAM 
 
 
 | Système d'exploitation et logiciels | RHEL8. Voir la link:https://mysupport.netapp.com/matrix/["IMT"^] pour les systèmes d'exploitation pris en charge 
@@ -37,7 +37,7 @@ Si vous voulez mettre à niveau XCP, supprimez l'installation actuelle et rempla
 | Version de protocole prise en charge | NFSv3 et NFSv4 (POSIX et ACL) 
 
 
-| Navigateur pris en charge (analyse de fichiers uniquement) | XCP File Analytics prend en charge Google Chrome version 76 et ultérieure. Voir la link:https://mysupport.netapp.com/matrix/["IMT"^] matrice pour toutes les versions prises en charge du navigateur 
+| Navigateur pris en charge (analyse de fichiers uniquement) | Reportez-vous à la link:https://mysupport.netapp.com/matrix/["IMT"^] Matrice pour toutes les versions de navigateur prises en charge pour XCP File Analytics. 
 |===
 
 NOTE: La configuration recommandée pour la migration de source en direct est de 8 cœurs et de 64 Go de RAM.
