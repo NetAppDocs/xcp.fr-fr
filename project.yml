@@ -85,9 +85,7 @@ sidebar:
   - title: Migrer des données
     entries:
     - title: Migrer des données NFS
-      entries:
-      - title: Commandes de migration des données NFS
-        url: "/xcp-migrate-nfs-data.html"
+      url: "/xcp-migrate-data.html"
     - title: Migrer les données SMB
       url: "/xcp-migrate-smb-data.html"
     - title: Migration des données HDFS

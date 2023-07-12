@@ -13,3 +13,73 @@ summary: Migrer des données
 :imagesdir: ./media/
 
 
+[role="lead"]
+Après avoir planifié la migration avec `show` et `scan` vous pouvez migrer des données.
+
+
+
+== Copier
+
+Le `copy` La commande analyse et copie l'ensemble de la structure du répertoire source dans une exportation NFSv3 de destination. Le `copy` la commande nécessite l'utilisation de chemins source et de destination comme variables. Les fichiers numérisés et copiés, le débit/la vitesse et le temps écoulé sont affichés à la fin de l'opération de copie.
+
+*Exemple:*
+
+[listing]
+----
+xcp copy -newid <id> src_server:/src_export dst_server:/dst_export
+----
+*Exemple de chemin POSIX :*
+
+[listing]
+----
+xcp copy -newid <id> file:///mnt/source file:///mnt/dest
+----
+Voir `xcp help copy` pour en savoir plus.
+
+
+
+== Reprendre
+
+Le `resume` la commande redémarre une opération de copie interrompue précédemment en spécifiant le nom ou le numéro d'index du catalogue. Le nom d'index de catalogue ou le numéro de l'opération de copie précédente est stocké sur le `<catalog path>:/catalog/indexes` répertoire.
+
+*Exemple:*
+
+[listing]
+----
+xcp resume [options] -id <id used for copy>
+----
+Voir `xcp help resume` pour en savoir plus.
+
+
+
+== Synchrone
+
+Le `sync` La commande recherche les modifications et modifications effectuées sur un répertoire NFS source à l'aide d'un nom de repère d'indexation de catalogue ou du numéro d'une opération de copie précédente. Les modifications incrémentielles source sont copiées et appliquées au répertoire cible. Les anciens numéros d'index de catalogue sont remplacés par un nouveau [.souligné]#après l'opération de synchronisation#.
+
+*Exemple:*
+
+[listing]
+----
+xcp sync [options] -id <id used for copy>
+----
+Voir `xcp help sync` pour en savoir plus.
+
+
+
+== La vérification
+
+Le `verify` la commande utilise une comparaison complète des données octet par octet entre les répertoires source et cible après l'opération de copie sans utiliser de numéro d'index de catalogue. La commande recherche les heures de modification et d'autres attributs de fichier ou de répertoire, y compris les autorisations. La commande lit également les fichiers des deux côtés et compare les données.
+
+*Exemple:*
+
+[listing]
+----
+xcp verify src_server:/src_export dst_server:/dst_export
+----
+*Exemple de chemin POSIX :*
+
+[listing]
+----
+xcp verify file:///mnt/source file:///mnt/dest
+----
+Voir `xcp help verify` pour en savoir plus.

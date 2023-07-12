@@ -4,10 +4,10 @@ sidebar: sidebar
 keywords: information, library, releases, documentation, install, configure, xcp 
 summary: 'Bienvenue dans la bibliothèque d"informations XCP, qui contient des liens vers des versions antérieures.' 
 ---
-= Documentation XCP v1.9
+= Documentation XCP v1.9.2
 :allow-uri-read: 
 
 
-Bienvenue dans la bibliothèque d'informations XCP. Ici vous trouverez la documentation pour le logiciel XCP v1.9, y compris la procédure d'installation, de configuration et d'utilisation de XCP.
+Bienvenue dans la bibliothèque d'informations NetApp XCP. Vous trouverez ici de la documentation pour le logiciel XCP v1.9.2, y compris comment installer, configurer et utiliser XCP.
 
 La documentation pour les versions antérieures de XCP est disponible sur le link:https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63064["Site de support NetApp"^].
