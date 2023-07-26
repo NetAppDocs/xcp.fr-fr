@@ -14,9 +14,9 @@ summary: 'Le connecteur S3 permet à XCP de migrer des données d"un système de
 .Cas d'utilisation de la migration pris en charge
 Les cas d'usage suivants sont pris en charge pour les connecteurs S3 :
 
-* Migration de HDFS ou NFS vers NetApp StorageGRID
-* Migration de HDFS ou NFS vers Amazon S3
-* Migration de HDFS ou NFS vers NetApp ONTAP S3
+* Migration de HDFS vers NetApp StorageGRID
+* Migration de HDFS vers Amazon S3
+* Migration de HDFS à NetApp ONTAP S3
 
 
 
