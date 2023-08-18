@@ -1,0 +1,39 @@
+---
+indexpage:
+  lead: NetApp XCP est un logiciel basé sur client qui permet des migrations de données
+    évolutives et haute performance pour les migrations de données any-to-NetApp et
+    NetApp-to-NetApp et l'analytique de fichiers. Vous trouverez ici de la documentation
+    pour le logiciel XCP 1.9.2, y compris comment installer, configurer et utiliser
+    XCP. La documentation des versions antérieures de XCP est disponible sur le site
+    de support NetApp.
+  tiles:
+  - title: Commencez
+    links:
+    - title: Notes de mise à jour
+      url: "/releasenotes.html"
+    - title: En savoir plus sur XCP
+      url: "/xcp-index.html"
+  - title: Versions antérieures
+    links:
+    - title: NetApp XCP 1.9.1
+      url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=64637&language=en-US
+    - title: NetApp XCP 1.9
+      url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=64493&language=en-US
+    - title: NetApp XCP 1.8.1
+      url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=64287&language=en-US
+    - title: NetApp XCP 1.8
+      url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=64074&language=en-US
+    - title: NetApp XCP 1.7 et versions antérieures
+      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63064
+  - title: Ressources supplémentaires
+    links:
+    - title: Documentation XCP (y compris les documents de référence)
+      url: https://mysupport.netapp.com/documentation/productlibrary/index.html?productID=63064
+    - title: NetApp TechCommTV (vidéos NetApp XCP)
+      url: link:https://www.youtube.com/user/NetAppTechCommTV/search?query=xcp
+    - title: NetApp XCP (y compris des liens pour obtenir une licence)
+      url: https://xcp.netapp.com/
+    - title: Ressources NetApp pour XCP
+      url: https://www.netapp.com/search/#q=xcp&sort=relevancy&f:@language=English
+    - title: Communauté NetApp (forums)
+      url: link:https://community.netapp.com

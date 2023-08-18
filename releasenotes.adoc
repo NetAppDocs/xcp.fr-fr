@@ -8,6 +8,7 @@ summary: Décrit les nouvelles fonctionnalités, les notes de mise à niveau, le
 :allow-uri-read: 
 
 
+[role="lead"]
 Le link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2885805["Notes de mise à jour de XCP v1.9.2"^] décrivez les nouvelles fonctionnalités, les notes de mise à niveau, les problèmes résolus, les limites connues et les problèmes connus.
 
 Vous devez vous connecter sur le site du support NetApp pour accéder aux notes de version.

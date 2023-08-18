@@ -1,0 +1,36 @@
+---
+sidebar: sidebar 
+permalink: xcp-index.html 
+keywords: netapp, xcp, about, migration, file analytics, nfs, smb 
+summary: NetApp XCP permet des migrations de données évolutives et haute performance 
+---
+= En savoir plus sur XCP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+NetApp XCP est conçu pour évoluer et améliorer les performances en utilisant toutes les ressources système disponibles pour gérer des datasets de volumes importants et des migrations de données hautes performances. XCP vous permet d'obtenir une visibilité complète sur le système de fichiers avec la possibilité de générer des rapports client. Grâce aux fonctionnalités de mise en correspondance et de mise en forme, vous pouvez personnaliser les rapports en fonction de vos besoins de reporting.
+
+Utiliser XCP pour les systèmes NFS ou SMB comme l'une des solutions suivantes :
+
+* Solution de migration
+* Solution d'analytique des fichiers
+
+
+XCP est un logiciel de ligne de commande disponible en un seul package prenant en charge les protocoles NFS et SMB. XCP est disponible sous forme de binaire Linux pour les datasets NFS et est disponible sous forme d'exécutable Windows pour les datasets SMB.
+
+XCP File Analytics est un logiciel basé sur l'hôte qui détecte les partages de fichiers, exécute les analyses sur le système de fichiers et fournit un tableau de bord pour l'analytique des fichiers. XCP File Analytics fonctionne pour les systèmes NetApp et tiers et s'exécute sur des hôtes Linux ou Windows pour fournir une analyse des systèmes de fichiers exportés NFS et SMB. Le binaire de l'interface utilisateur graphique d'analytique des fichiers est inclus dans le pack unique prenant en charge les protocoles NFS et SMB.
+
+
+NOTE: Le binaire XCP est signé par code. Pour plus de détails, reportez-vous au fichier README de la section `NETAPP_XCP_<version>.tgz`.
+
+La CLI XCP est robuste. Pour plus d'informations, téléchargez _XCP Reference_ sur le link:https://xcp.netapp.com/["Site XCP"^].
+
+*Flux de travail XCP*
+
+image:xcp_image1.png["Image de flux de travail XCP"]
