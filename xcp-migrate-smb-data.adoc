@@ -14,7 +14,7 @@ summary: Migrer les données SMB
 
 
 [role="lead"]
-Après avoir planifié la migration avec `show` et `scan` vous pouvez migrer des données.
+Après avoir planifié la migration avec `show` et `scan` Vous pouvez migrer les données SMB.
 
 
 

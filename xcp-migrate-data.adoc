@@ -4,7 +4,7 @@ permalink: xcp-migrate-data.html
 keywords: netapp, xcp, migrate, data, nfs, smb, copy, resume, sync, verify 
 summary: Migrer des données 
 ---
-= Migrer des données
+= Migrer des données NFS
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,7 +14,7 @@ summary: Migrer des données
 
 
 [role="lead"]
-Après avoir planifié la migration avec `show` et `scan` vous pouvez migrer des données.
+Après avoir planifié la migration avec `show` et `scan` Vous pouvez migrer les données NFS.
 
 
 

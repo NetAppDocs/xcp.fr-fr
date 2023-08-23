@@ -14,7 +14,7 @@ summary: Migration des données HDFS
 
 
 [role="lead"]
-Après avoir planifié la migration avec `scan` vous pouvez migrer des données.
+Après avoir planifié la migration avec `scan` Vous pouvez migrer les données HDFS.
 
 
 
