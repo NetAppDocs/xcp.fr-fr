@@ -34,14 +34,6 @@ Les fonctionnalités suivantes ne sont pas prises en charge sur XCP NFS :
 
 
 
-| Connecteur HDFS (Hadoop Distributed File System)  a| 
-* Le `sync` La commande ne prend pas en charge le connecteur HDFS
-* Le système de fichiers HDFS ne prend pas en charge les liens symboliques (symlinks), les liens matériels ou les fichiers spéciaux
-* Vous ne devez pas utiliser le `copy` commande lorsque la source est active
-
-
-
-
 | Linux | XCP n'est plus pris en charge sur des distributions antérieures de Linux qui étaient prises en charge par XCP 1.6.3. 
 
 
