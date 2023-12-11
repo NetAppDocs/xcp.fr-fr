@@ -16,7 +16,11 @@ summary: File Analytics fournit une vue graphique des résultats de numérisatio
 [role="lead"]
 File Analytics fournit une vue graphique des résultats de numérisation.
 
-L'interface graphique XCP File Analytics fournit un tableau de bord avec des graphiques pour la visualisation des analyses de fichiers. L'interface graphique XCP File Analytics est activée lorsque vous configurez XCP sur un ordinateur Linux.
+
+
+== Connectez-vous à l'interface graphique de File Analytics
+
+L'interface graphique de XCP File Analytics fournit un tableau de bord avec des graphiques pour visualiser l'analytique de fichiers. L'interface graphique XCP File Analytics est activée lorsque vous configurez XCP sur un ordinateur Linux.
 
 
 NOTE: Pour consulter les navigateurs pris en charge pour accéder à File Analytics, reportez-vous à la section link:https://mysupport.netapp.com/matrix/["NetApp IMT"^].
@@ -24,8 +28,8 @@ NOTE: Pour consulter les navigateurs pris en charge pour accéder à File Analyt
 .Étapes
 . Utilisez le lien `\https://<IP address of linux machine>/xcp` Pour accéder à l'interface graphique File Analytics. Lorsque vous y êtes invité, acceptez le certificat de sécurité :
 +
-.. Sélectionnez Avancé sous la déclaration de confidentialité.
-.. Sélectionnez Continuer `<IP address of linux machine>` lien.
+.. Sélectionnez *Avancé* sous la déclaration de confidentialité.
+.. Sélectionnez le *passer à `<IP address of linux machine>`* lien.
 
 
 . Connectez-vous à l'interface graphique File Analytics.
@@ -33,21 +37,37 @@ NOTE: Pour consulter les navigateurs pris en charge pour accéder à File Analyt
 Il existe deux façons de se connecter à l'interface graphique File Analytics :
 
 +
-.. Utilisez le nom d’utilisateur « admin » et le mot de passe que vous avez défini lors de la configuration.
+[role="tabbed-block"]
+====
+.Connectez-vous à l'aide des informations d'identification de l'utilisateur
+--
+.. Connectez-vous à l'interface utilisateur graphique à l'aide des informations d'identification obtenues lorsque vous avez installé File Analytics.
 +
 image:xcp_image2.png["Ecran de connexion XCP File Analytics"]
 
-.. Configurez et activez la fonctionnalité SSO (Single Sign-on) à l'échelle de l'entreprise.
+.. Vous pouvez également modifier le mot de passe en fonction de votre propre mot de passe.
 +
-Vous pouvez utiliser cette fonctionnalité de connexion pour configurer XCP File Analytics sur une machine donnée et partager l'URL de l'interface utilisateur Web à l'échelle de l'entreprise, ce qui permet aux utilisateurs de se connecter à l'interface utilisateur à l'aide de leurs informations d'identification SSO.
+Si vous souhaitez modifier le mot de passe obtenu lors de l'installation en fonction de votre propre mot de passe, sélectionnez l'icône utilisateur et sélectionnez *Modifier le mot de passe*.
 
 +
+Votre nouveau mot de passe doit comporter au moins huit caractères et contenir au moins un chiffre, une lettre majuscule, une lettre minuscule et un caractère spécial (! @ # $ % ^ & * - _).
+
+
+
+
+NOTE: Après avoir modifié le mot de passe, vous êtes automatiquement déconnecté de l'interface graphique et vous devez vous reconnecter à l'aide du nouveau mot de passe que vous avez créé.
+
+--
+.Configuration et activation de la fonctionnalité SSO
+--
+Vous pouvez utiliser cette fonctionnalité de connexion pour configurer XCP File Analytics sur un ordinateur particulier et partager l'URL de l'interface utilisateur Web à l'échelle de l'entreprise, ce qui permet aux utilisateurs de se connecter à l'interface utilisateur à l'aide de leurs informations d'identification SSO (Single Sign-on).
+
 
 NOTE: La connexion SSO est facultative et peut être configurée et activée en permanence. Pour configurer la connexion SSO basée sur le langage SAML, reportez-vous à la section <<Configuration des informations d'identification SSO>>.
 
-
-
-. Une fois connecté, vous pouvez voir que l'agent NFS, une coche verte indiquant la configuration système minimale du système Linux et de la version XCP.
+--
+====
+. Une fois connecté, vous pouvez voir l'agent NFS ; une coche verte indique la configuration minimale du système Linux et de la version XCP.
 . Si vous avez configuré un agent SMB, vous pouvez voir l'agent SMB ajouté dans la même carte agent.
 
 
@@ -72,13 +92,13 @@ Les informations obligatoires que vous devez partager pour vous inscrire auprès
 Vous pouvez également vérifier ces détails en vous connectant à l'interface utilisateur File Analytics :
 
 +
-... Connectez-vous à l'interface utilisateur à l'aide du nom d'utilisateur "admin" et du mot de passe configurés lors de l'installation.
+... Connectez-vous à l'interface graphique en suivant les étapes décrites dans <<Connectez-vous à l'interface graphique de File Analytics>>.
 ... Sélectionnez l'icône *utilisateur* dans le coin supérieur droit de la page, puis sélectionnez *Paramètres SAML*.
 +
 Cochez *Paramètres fournisseur de services* dans le menu déroulant qui s'affiche.
 
 +
-image:xcp_image18.png["Paramètres SAML exemple"]
+image:xcp-saml-settings.png["Paramètres SAML exemple"]
 
 +
 Après l'enregistrement, vous recevez les détails du point de terminaison IDP pour votre entreprise. Vous devez fournir ces métadonnées de point de terminaison IDP à l'interface d'analyse des fichiers.

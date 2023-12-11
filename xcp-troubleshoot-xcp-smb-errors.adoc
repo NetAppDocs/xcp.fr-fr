@@ -21,6 +21,13 @@ Passez en revue les solutions pour résoudre votre problème.
 
 
  a| 
+Les commandes XCP n'affichent pas les résultats attendus lorsqu'un chemin de jonction est utilisé dans la source ou la destination.
+ a| 
+Utilisez un chemin de partage SMB à la place d'un chemin de jonction lors de l'exécution des commandes XCP.
+
+
+
+ a| 
 Une erreur de traceback peut se produire si la source, la destination ou les deux sont une jonction sans répertoire et si une licence en ligne est utilisée dans la migration. Si cela se produit, le statut de la commande XCP est `PASSED` mais l'erreur suivante est renvoyée à la fin de la sortie de la console :
 
 [listing]

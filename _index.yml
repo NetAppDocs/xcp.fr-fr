@@ -3,7 +3,7 @@ indexpage:
   lead: NetApp XCP est un logiciel basé sur client qui permet des migrations de données
     évolutives et haute performance pour les migrations de données any-to-NetApp et
     NetApp-to-NetApp et l'analytique de fichiers. Vous trouverez ici de la documentation
-    pour le logiciel XCP 1.9.2, y compris comment installer, configurer et utiliser
+    pour le logiciel XCP 1.9.3, y compris comment installer, configurer et utiliser
     XCP. La documentation des versions antérieures de XCP est disponible sur le site
     de support NetApp.
   tiles:
@@ -15,6 +15,8 @@ indexpage:
       url: "/xcp-index.html"
   - title: Versions antérieures
     links:
+    - title: NetApp XCP 1.9.2
+      url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=64804&language=en-US
     - title: NetApp XCP 1.9.1
       url: https://mysupport.netapp.com/documentation/docweb/index.html?productID=64637&language=en-US
     - title: NetApp XCP 1.9

@@ -80,3 +80,16 @@ xcp estimate -id <scan id> -target server:/export
 xcp live estimation with -t option
 xcp estimate -id <scan id> -t <time for which estimation should run> -target server:/export
 ....
+
+
+== suppression d'index
+
+Vous pouvez utiliser le `indexdelete` commande de suppression des index de catalogue.
+
+*Exemple*
+
+[listing]
+----
+xcp indexdelete
+----
+Courez `xcp help indexdelete` pour en savoir plus.

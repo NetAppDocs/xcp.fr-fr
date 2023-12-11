@@ -101,18 +101,41 @@ Le graphique espace occupé par les utilisateurs affiche l'espace utilisé par l
 
 image:xcp_image13.png["Fichiers consultés/modifiés/créés"]
 
-Le graphique fichiers accédés/modifiés/créés affiche le nombre de fichiers modifiés d'heures supplémentaires. L'axe X représente la période pendant laquelle des changements ont été effectués et l'axe y représente le nombre de fichiers modifiés.
+Le graphique fichiers consultés/modifiés/créés affiche le nombre de fichiers modifiés au fil du temps. L'axe X représente la période pendant laquelle des modifications ont été apportées et l'axe y représente le nombre de fichiers modifiés.
 
 
 NOTE: Pour obtenir le graphique du temps d'accès (atime) dans les acquisitions SMB, cochez la case pour préserver l'heure avant d'exécuter une acquisition.
 
 
 
-=== Graphique de distribution de fichiers par extension
+=== Taille du fichier : graphique accédé/modifié/créé
+
+image:xcp-filesize-amc.png[""]
+
+Le graphique taille du fichier accédé/modifié/créé affiche la taille des fichiers modifiés au fil du temps. L'axe X représente la période pendant laquelle des modifications ont été apportées et l'axe y représente la taille des fichiers modifiés.
+
+
+NOTE: Pour obtenir le graphique du temps d'accès (atime) dans les acquisitions SMB, cochez la case pour préserver l'heure avant d'exécuter une acquisition.
+
+
+
+=== Distribution de fichiers par graphique d'extension
 
 image:xcp_image14.png["Graphique de distribution de fichiers par extension"]
 
 Le graphique distribution de fichiers par extension représente le nombre des différentes extensions de fichier dans un partage de fichiers. La taille des divisions représentant les extensions est basée sur le nombre de fichiers avec chaque extension.
+
+En outre, pour les partages SMB, vous pouvez obtenir le nombre de fichiers ADS (Alternate Data Streams) pour chaque extension de fichier en cochant la case ADS avant d'exécuter une analyse.
+
+image:xcp-file-distribution-ads.png[""]
+
+
+
+=== Distribution de taille de fichier par graphique d'extension
+
+image:xcp-filesize-dist-ex.png[""]
+
+Le graphique distribution de taille de fichier par extension représente la taille cumulée des différentes extensions de fichier d'un partage de fichiers. La taille des divisions représentant les extensions est basée sur la taille des fichiers avec chaque extension.
 
 
 
@@ -128,3 +151,7 @@ Le graphique distribution par type représente le nombre des types de fichiers s
 * DIR : fichiers avec répertoires
 * Jonction : disponible uniquement en SMB
 
+
+En outre, pour les partages SMB, vous pouvez obtenir le nombre de fichiers ADS (Alternate Data Streams) pour différents types en cochant la case ADS avant d'exécuter une analyse.
+
+image:xcp-file-distribution-type.png[""]

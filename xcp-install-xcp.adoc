@@ -40,6 +40,11 @@ NetApp offre une licence XCP gratuite d'un an. Vous pouvez obtenir le fichier de
 
 La licence XCP est disponible sous forme de licence hors ligne ou en ligne. Si vous souhaitez envoyer des statistiques de migration, utilisez une licence en ligne. La licence en ligne nécessite une connexion Internet. La licence hors ligne ne nécessite pas de connexion Internet.
 
+Pour exécuter XCP 1.9.3 et versions ultérieures, vous devez obtenir une nouvelle licence XCP du link:https://xcp.netapp.com/["Site XCP"^].
+
+
+NOTE: Les licences utilisées avec XCP 1.9.2 et versions antérieures ne sont pas prises en charge dans XCP 1.9.3 et versions ultérieures. De même, les licences utilisées avec XCP 1.9.3 et versions ultérieures ne sont pas prises en charge dans XCP 1.9.2 et versions antérieures.
+
 
 
 == Préparez votre système

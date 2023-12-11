@@ -58,9 +58,6 @@ Les fonctionnalités suivantes ne sont pas prises en charge sur XCP SMB :
 | IPv6 | Ne prend pas en charge IP version 6 (IPv6) 
 
 
-| Flux de données NTFS alternatifs | XCP ne prend pas actuellement en charge les flux de données alternatifs 
-
-
 | Filtres XCP | L'option d'exclusion XCP SMB exclut actuellement les répertoires en fonction de leur modèle dans le filtre et traverse le système de fichiers de ces répertoires. 
 
 

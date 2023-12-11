@@ -31,7 +31,7 @@ Cette section détaille la configuration système requise et les procédures de 
 | Système | Serveur Intel ou AMD 64 bits, 8 cœurs minimum et 64 Go de RAM 
 
 
-| Système d'exploitation et logiciels | RHEL8. Voir la link:https://mysupport.netapp.com/matrix/["IMT"^] pour les systèmes d'exploitation pris en charge 
+| Système d'exploitation et logiciels | Voir la link:https://mysupport.netapp.com/matrix/["IMT"^] pour les systèmes d'exploitation pris en charge 
 
 
 | Exigences spéciales | Connectivité réseau et accès de niveau racine aux exportations NFSv3 de la source et de la destination aucune autre application active 
