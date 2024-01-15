@@ -102,7 +102,7 @@ sidebar:
     entries:
     - title: Dépanner les erreurs XCP NFS
       url: "/xcp-troubleshoot-xcp-nfs.html"
-    - title: Dépanner les erreurs XCP SMB
+    - title: Dépanner les erreurs SMB XCP
       url: "/xcp-troubleshoot-xcp-smb-errors.html"
     - title: Dépanner les erreurs d'analyse des fichiers XCP
       url: "/xcp-troubleshoot-xcp-file-analytics-errors.html"
