@@ -52,4 +52,7 @@ Les fichiers de notification fournissent des informations sur les droits d'auteu
 * link:media/xcp_1.9_notice.pdf["Avis pour NetApp XCP 1.9"^]
 * link:media/xcp_1.8.1_notice.pdf["Avis pour NetApp XCP 1.8.1"^]
 * link:media/xcp_1.8_notice.pdf["Avis pour NetApp XCP 1.8"^]
+* link:media/xcp_1.7_notice.pdf["Avis pour NetApp XCP 1.7"^]
+* link:media/xcp_1.6.2_notice.pdf["Avis pour NetApp XCP 1.6.2"^]
+* link:media/xcp_1.6.1_notice.pdf["Avis pour NetApp XCP 1.6.1"^]
 

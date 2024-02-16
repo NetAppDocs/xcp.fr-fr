@@ -65,7 +65,7 @@ Un utilisateur root sur une machine Linux dispose des autorisations nécessaires
 
 == Utilisateur non-root
 
-Un utilisateur non root dispose des autorisations suivantes sur un volume monté :
+Un utilisateur non root doit disposer des autorisations suivantes sur un volume monté :
 
 * Droits d'accès en lecture au volume source
 * Accès en lecture/écriture au volume de destination monté
