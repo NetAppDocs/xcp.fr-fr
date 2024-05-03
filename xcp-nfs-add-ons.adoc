@@ -28,7 +28,7 @@ Lorsque vous n'activez NFSv4 que sur les volumes source, de destination et de ca
 
 == Connecteurs POSIX
 
-XCP 1.8 prend en charge l'utilisation de connecteurs POSIX pour fournir des chemins source, de destination et de catalogue pour la migration des données. Le connecteur POSIX (fichier://) permet à XCP d'accéder à tout système de fichiers monté sur Linux, tel que NFSv4, XFS et Veritas. Pour les utilisateurs non-racines, l'administrateur système peut monter le système de fichiers pour donner à tout utilisateur non-root la possibilité d'accéder au système de fichiers à l'aide d'un connecteur POSIX avec le préfixe file://.
+XCP prend en charge l'utilisation de connecteurs POSIX pour fournir des chemins d'accès à la source, à la destination et au catalogue pour la migration des données. Le connecteur POSIX (fichier://) permet à XCP d'accéder à tous les systèmes de fichiers montés sur Linux, tels que NFSv4, XFS et Veritas. Pour les utilisateurs non root, l'administrateur système peut monter le système de fichiers pour donner à tout utilisateur non root la possibilité d'accéder au système de fichiers en utilisant un connecteur POSIX avec le préfixe file://.
 
 Vous pouvez bénéficier des connecteurs POSIX si vous ne disposez pas d'autorisations suffisantes pour monter le fichier ou lorsque le support disponible dans les data centers est limité à NFSv4. Dans ce cas, tout utilisateur root peut monter la source et la destination, puis accéder au chemin à l'aide d'un connecteur POSIX. Lorsque vous utilisez des connecteurs POSIX, vous ne pouvez exécuter que le `xcp copy` fonctionnement.
 
