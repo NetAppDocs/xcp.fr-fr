@@ -1,0 +1,17 @@
+---
+sidebar: sidebar 
+permalink: xcp-reference-overview.html 
+keywords: netapp, xcp, reference, smb, nfs, logging, use case, commands 
+summary: Référence des commandes SMB XCP 
+---
+= Présentation de la référence de commande XCP
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+La référence des commandes XCP fournit des exemples de commandes disponibles pour XCP NFS et SMB. Chaque commande comporte des paramètres supplémentaires que vous pouvez utiliser seul ou en combinaison, selon les besoins. XCP prend en charge la rotation des fichiers journaux et le filtrage des journaux en fonction du niveau de sévérité.

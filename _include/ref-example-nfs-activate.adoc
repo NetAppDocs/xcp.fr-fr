@@ -1,0 +1,14 @@
+= 
+:allow-uri-read: 
+
+
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp activate
+
+XCP activated
+----
+====

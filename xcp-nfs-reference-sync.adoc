@@ -1,0 +1,453 @@
+---
+sidebar: sidebar 
+permalink: xcp-nfs-reference-sync.html 
+keywords: netapp, xcp, reference, nfs, command, commands 
+summary: Référence de commande XCP NFS 
+---
+= synchronisation
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Afficher les descriptions, les paramètres et les exemples pour XCP `sync` commande, y compris lorsque `sync` la commande est utilisée avec le `dry run` option.
+
+
+
+== synchronisation
+
+Le NFS XCP `sync` La commande recherche les modifications et les modifications apportées à un répertoire NFS source à l'aide d'un nom de repère d'index de catalogue ou du numéro d'une opération de copie précédente. Les modifications incrémentielles apportées à la source sont copiées et appliquées au répertoire cible. Les anciens numéros d'index de catalogue sont remplacés par de nouveaux après l'opération de synchronisation.
+
+
+NOTE: Pendant l'opération de synchronisation, les fichiers et répertoires modifiés sont à nouveau copiés sur l'exportation NFSv3 de destination.
+
+.Syntaxe
+[source, cli]
+----
+xcp sync -id <catalog_name>
+----
+
+IMPORTANT: Le `-id <catalog_name>` le paramètre est requis avec le `sync` commande.
+
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync -id autoname_copy_2020-03-04_01.10.22.338436
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync -id autoname_copy_2020-03-04_01.10.22.338436
+0 scanned, 0 copied, 0 modification, 0 new item, 0 delete item, 0 error
+Speed : 26.4 KiB in (27.6 KiB/s), 22.7 KiB out (23.7 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+Le tableau suivant répertorie la `sync` paramètres et leur description.
+
+[cols="2*"]
+|===
+| Paramètre | Description 
+
+
+| <<sync_id,sync -id  >> | Spécifie le nom de catalogue d'un index de copie précédent. Il s'agit d'un paramètre obligatoire pour le `sync` commande. 
+
+
+| <<sync_nonames,sync -non-ames>> | Exclut les noms d'utilisateur et de groupe des listes de fichiers et des rapports. 
+
+
+| <<sync_bs,sync -bs [k]>  | Spécifie la taille du bloc de lecture/écriture (par défaut : 64 ko). 
+
+
+| <<sync_dircount,sync -dircount [k]>  | Spécifie la taille de la demande lors de la lecture des répertoires. 
+
+
+| <<sync_parallel,sync -parallèle  >> | Spécifie le nombre maximal de processus de traitement par lots simultanés (par défaut : 7). 
+
+
+| <<sync_preserve_atime,sync -preserve-atime>> | Restaure tous les fichiers à la dernière date d'accès sur la source. 
+|===
+
+
+=== sync -non-ames
+
+Utilisez le `-nonames` paramètre avec le `sync` commande permettant d'exclure les noms d'utilisateur et de groupe des listes de fichiers ou des rapports.
+
+.Syntaxe
+[source, cli]
+----
+xcp sync -id <catalog_name> -nonames
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync -id ID001 -nonames
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync -id ID001 -nonames
+0 scanned, 0 copied, 0 modification, 0 new item, 0 delete item, 0 error
+Speed : 26.4 KiB in (22.2 KiB/s), 22.3 KiB out (18.8 KiB/s)
+Total Time : 1s.
+STATUS : PASSED
+----
+====
+
+
+=== sync -bs <n[k]>
+
+Utilisez le `-bs <n[k]>` paramètre avec le `sync` pour spécifier la taille des blocs de lecture/écriture. La taille de bloc par défaut est de 64 Ko.
+
+.Syntaxe
+[source, cli]
+----
+xcp sync -id <catalog_name> -bs <n[k]>
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync -id ID001 -bs 32k
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync -id ID001 -bs 32k
+0 scanned, 0 copied, 0 modification, 0 new item, 0 delete item, 0 error
+Speed : 25.3 KiB in (20.4 KiB/s), 21.0 KiB out (16.9 KiB/s)
+Total Time : 1s.
+STATUS : PASSED
+----
+====
+
+
+=== sync -dircount <n[k]>
+
+Utilisez le `-dircount <n[k]>` paramètre avec le `sync` commande permettant de spécifier la taille de la demande lors de la lecture des répertoires. La valeur par défaut est 64k.
+
+.Syntaxe
+[source, cli]
+----
+xcp sync -id <catalog_name> -dircount <n[k]>
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync -id ID001 -dircount 32k
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync -id ID001 -dircount 32k
+0 scanned, 0 copied, 0 modification, 0 new item, 0 delete item, 0 error
+Speed : 25.3 KiB in (27.8 KiB/s), 21.0 KiB out (23.0 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+=== sync -parallèle
+
+Utilisez le `-parallel` paramètre avec le `sync` pour spécifier le nombre maximal de traitements par lots simultanés. La valeur par défaut est 7.
+
+.Syntaxe
+[source, cli]
+----
+xcp sync -id <catalog_name> -parallel <n>
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync -id ID001 -parallel 4
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync -id ID001 -parallel 4
+0 scanned, 0 copied, 0 modification, 0 new item, 0 delete item, 0 error
+Speed : 25.3 KiB in (20.6 KiB/s), 21.0 KiB out (17.1 KiB/s)
+Total Time : 1s.
+STATUS : PASSED
+----
+====
+
+
+=== -preserve-atime
+
+Utilisez le `-preserve-atime` paramètre avec le `sync` pour restaurer tous les fichiers à la date de dernier accès sur la source.
+
+Le `-preserve-atime` Cette option réinitialise le temps d'accès à la valeur d'origine définie avant l'opération de lecture XCP.
+
+.Syntaxe
+[source, cli]
+----
+xcp sync -preserve-atime -id <catalog_name>
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@client-1 linux]# ./xcp sync -preserve-atime -id XCP_copy_2022-06-30_14.22.53.742272
+
+xcp: Job ID: Job_XCP_copy_2022-06-30_14.22.53.742272_2022-06-30_14.27.28.660165_sync
+xcp: Index: {source: 101.10.10.10:/source_vol, target: 10.201.201.20:/dest_vol}
+xcp: diff 'XCP_copy_2022-06-30_14.22.53.742272': 55 reviewed, 55 checked at source, 1 modification,
+54 reindexed, 23.3 KiB in (15.7 KiB/s), 25.1 KiB out (16.9 KiB/s), 1s.
+xcp: sync 'XCP_copy_2022-06-30_14.22.53.742272': Starting search pass for 1 modified directory...
+xcp: find changes: 55 reviewed, 55 checked at source, 1 modification, 55 re-reviewed, 54 reindexed,
+28.0 KiB in (18.4 KiB/s), 25.3 KiB out (16.6 KiB/s), 1s.
+xcp: sync phase 2: Rereading the 1 modified directory...
+xcp: sync phase 2: 55 reviewed, 55 checked at source, 1 modification, 55 re-reviewed, 1 new dir, 54
+reindexed, 29.2 KiB in (19.0 KiB/s), 25.6 KiB out (16.7 KiB/s), 1s.
+xcp: sync 'XCP_copy_2022-06-30_14.22.53.742272': Deep scanning the 1 modified directory...
+xcp: sync 'XCP_copy_2022-06-30_14.22.53.742272': 58 scanned, 55 copied, 56 indexed, 55 reviewed, 55
+checked at source, 1 modification, 55 re-reviewed, 1 new dir, 54 reindexed, 1.28 MiB in (739
+KiB/s), 1.27 MiB out (732 KiB/s), 1s.
+Xcp command : xcp sync -preserve-atime -id XCP_copy_2022-06-30_14.22.53.742272
+Stats : 58 scanned, 55 copied, 56 indexed, 55 reviewed, 55 checked at source, 1 modification,
+55 re-reviewed, 1 new dir, 54 reindexed
+Speed : 1.29 MiB in (718 KiB/s), 1.35 MiB out (755 KiB/s)
+Total Time : 1s.
+Migration ID: XCP_copy_2022-06-30_14.22.53.742272
+Job ID : Job_XCP_copy_2022-06-30_14.22.53.742272_2022-06-30_14.27.28.660165_sync
+Log Path : /opt/NetApp/xFiles/xcp/xcplogs/Job_XCP_copy_2022-06-30_14.22.53.742272_2022-06-
+30_14.27.28.660165_sync.log
+STATUS : PASSED
+----
+====
+
+
+== synchronisation de la course à sec
+
+Le `sync` commande avec `dry-run` Cette option recherche les modifications apportées au répertoire NFS source à l'aide du numéro d'index de catalogue précédent d'une opération de copie. Cette commande détecte également les fichiers et répertoires nouveaux, déplacés, supprimés ou renommés depuis la copie précédente. La commande signale les modifications de la source mais ne les applique pas à la cible.
+
+.Syntaxe
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name>
+----
+
+IMPORTANT: Le `-id <catalog_name>` le paramètre est requis avec le `sync dry-run` option de commande.
+
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync dry-run -id ID001
+0 matched, 0 error
+Speed : 15.2 KiB in (46.5 KiB/s), 5.48 KiB out (16.7 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+Le tableau suivant répertorie la `sync dry-run` paramètres et leur description.
+
+[cols="2*"]
+|===
+| Paramètre | Description 
+
+
+| <<sync_dry_run_id,sync dry-run -id  >> | Spécifie le nom de catalogue d'un index de copie précédent. Il s'agit d'un paramètre obligatoire pour le `sync` commande. 
+
+
+| <<sync_dry_run_stats,sync dry-run -stats>> | Effectue une analyse approfondie des répertoires modifiés et signale tout ce qui est
+nouveau. 
+
+
+| <<sync_dry_run_l,sync dry-run -l>> | Imprime des détails sur les fichiers et les répertoires modifiés. 
+
+
+| <<sync_dry_run_nonames,sync dry-run -non-ames>> | Exclut les noms d'utilisateur et de groupe des listes de fichiers et des rapports. 
+
+
+| <<sync_dry_run_dircount,sync dry-run -dircount [k]>  | Spécifie la taille de la demande lors de la lecture des répertoires. 
+
+
+| <<sync_dry_run_parallel,sync dry-run -parallel  >> | Spécifie le nombre maximal de processus de traitement par lots simultanés (par défaut : 7). 
+|===
+
+
+=== sync dry-run -id <catalog_name>
+
+Utilisez le `-id <catalog_name>` paramètre avec `sync dry-run` pour spécifier le nom de catalogue d'un index de copie précédent.
+
+
+IMPORTANT: Le `-id <catalog_name>` le paramètre est requis avec le `sync dry-run` option de commande.
+
+.Syntaxe
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name>
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync dry-run -id ID001
+0 matched, 0 error
+Speed : 15.2 KiB in (21.7 KiB/s), 5.48 KiB out (7.81 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+=== sync dry-run -stats
+
+Utilisez le `-stats` paramètre avec `sync dry-run` pour effectuer une analyse approfondie des répertoires modifiés et signaler tout ce qui est nouveau.
+
+.Syntaxe
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name> -stats
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001 -stats
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+4,895 reviewed, 43,163 checked at source, 12.8 MiB in (2.54 MiB/s), 5.49 MiB out (1.09 MiB/s),
+5s
+4,895 reviewed, 101,396 checked at source, 19.2 MiB in (1.29 MiB/s), 12.8 MiB out (1.47 MiB/s),
+10s
+Xcp command : xcp sync dry-run -id ID001 -stats
+0 matched, 0 error
+Speed : 22.9 MiB in (1.74 MiB/s), 17.0 MiB out (1.29 MiB/s)
+Total Time : 13s.
+STATUS : PASSED
+----
+====
+
+
+=== sync dry-run -l
+
+Utilisez le `-l` paramètre avec `sync dry-run` pour imprimer des détails sur les fichiers et les répertoires modifiés.
+
+.Syntaxe
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name> -l
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001 -l
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync dry-run -id ID001 -l
+0 matched, 0 error
+Speed : 15.2 KiB in (13.6 KiB/s), 5.48 KiB out (4.88 KiB/s)
+Total Time : 1s.
+STATUS : PASSED
+----
+====
+
+
+=== sync dry-run -non-ames
+
+Utilisez le `-nonames` paramètre avec `sync dry-run` pour exclure les noms d'utilisateur et de groupe des listes de fichiers ou des rapports.
+
+.Syntaxe
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name> -nonames
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001 -nonames
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync dry-run -id ID001 -nonames
+0 matched, 0 error
+Speed : 15.2 KiB in (15.8 KiB/s), 5.48 KiB out (5.70 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+=== sync dry-run -dircount <n[k]>
+
+Utilisez le `-dircount <n[k]>` paramètre avec `sync dry-run` pour spécifier la taille de la demande lors de la lecture des répertoires. La valeur par défaut est 64k.
+
+.Syntaxe
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name> -dircount <n[k]>
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001 -dircount 32k
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync dry-run -id ID001 -dircount 32k
+0 matched, 0 error
+Speed : 15.2 KiB in (32.5 KiB/s), 5.48 KiB out (11.7 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====
+
+
+=== sync dry-run -parallèle
+
+Utilisez le `-parallel` paramètre avec `sync dry-run` pour spécifier le nombre maximal de processus de traitement par lots simultanés. La valeur par défaut est 7.
+
+.Syntaxe
+[source, cli]
+----
+xcp sync dry-run -id <catalog_name> -parallel <n>
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@localhost linux]# ./xcp sync dry-run -id ID001 -parallel 4
+
+xcp: Index: {source: <IP address or hostname of NFS server>:/source_vol, target: <IP address of
+destination NFS server>:/dest_vol}
+Xcp command : xcp sync dry-run -id ID001 -parallel 4
+0 matched, 0 error
+Speed : 15.2 KiB in (25.4 KiB/s), 5.48 KiB out (9.13 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+----
+====

@@ -125,7 +125,7 @@ image:xcp_image14.png["Graphique de distribution de fichiers par extension"]
 
 Le graphique distribution de fichiers par extension représente le nombre des différentes extensions de fichier dans un partage de fichiers. La taille des divisions représentant les extensions est basée sur le nombre de fichiers avec chaque extension.
 
-En outre, pour les partages SMB, vous pouvez obtenir le nombre de fichiers ADS (Alternate Data Streams) pour chaque extension de fichier en cochant la case ADS avant d'exécuter une analyse.
+En outre, pour les partages SMB, vous pouvez obtenir le nombre de fichiers de flux de données secondaires pour chaque extension de fichier en cochant la case correspondant aux autres flux de données avant d'exécuter une analyse.
 
 image:xcp-file-distribution-ads.png[""]
 
@@ -152,6 +152,6 @@ Le graphique distribution par type représente le nombre des types de fichiers s
 * Jonction : disponible uniquement en SMB
 
 
-En outre, pour les partages SMB, vous pouvez obtenir le nombre de fichiers ADS (Alternate Data Streams) pour différents types en cochant la case ADS avant d'exécuter une analyse.
+En outre, pour les partages SMB, vous pouvez obtenir le nombre de fichiers de flux de données secondaires pour différents types en cochant la case correspondant aux autres flux de données avant d'exécuter une analyse.
 
 image:xcp-file-distribution-type.png[""]

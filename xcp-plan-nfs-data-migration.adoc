@@ -18,7 +18,7 @@ Planifier les migrations de données NFS.
 
 
 
-== Afficher
+== afficher
 
 Le `show` Commande interroge les services RPC et les exportations NFS d'un ou plusieurs serveurs de stockage. La commande répertorie les services et exportations disponibles avec la capacité utilisée et libre de chaque exportation, suivie des attributs racine de chaque exportation.
 
@@ -32,7 +32,7 @@ Courez `xcp help show` pour en savoir plus.
 
 
 
-== Analyser
+== numériser
 
 Le `scan` La commande analyse de manière récursive l'ensemble des chemins exportés par NFSv3 source et imprime les statistiques de la structure de fichiers à la fin de l'analyse. NetApp recommande de placer les montages d'exportation NFS source en mode lecture seule pendant l'analyse.
 

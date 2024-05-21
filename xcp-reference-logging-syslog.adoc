@@ -1,0 +1,145 @@
+---
+sidebar: sidebar 
+permalink: xcp-reference-logging-syslog.html 
+keywords: netapp, xcp, reference, event, logging 
+summary: Journalisation XCP 
+---
+= Activez le client syslog
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+XCP prend en charge un client syslog pour envoyer des messages du journal des événements XCP à un récepteur syslog distant pour NFS et SMB. Il prend en charge le protocole UDP à l'aide du port par défaut 514.
+
+
+
+== Configuration du client syslog pour NFS et SMB
+
+L'activation du client syslog nécessite la configuration du `syslog` dans le `xcpLogConfig.json` Fichier de configuration pour NFS et SMB.
+
+L'exemple de configuration suivant pour le client syslog pour NFS et SMB :
+
+[listing]
+----
+{
+"syslog":{
+"isEnabled":true,
+"level":"INFO",
+"serverIp":"10.101.101.d",
+"port":514
+},
+"sanitize":false
+}
+----
+
+
+== Options syslog
+
+Le tableau suivant présente les sous-options syslog et leur description :
+
+[cols="1,1,1,3"]
+|===
+| Sous-option | Type de données JSON | Valeur par défaut | Description 
+
+
+| `isEnabled` | Booléen | Faux | Cette option booléenne active le client syslog dans XCP. Réglage sur
+false ignore la configuration syslog. 
+
+
+| `level` | Chaîne | INFO | Niveau de filtre de gravité du message d'événement. Les messages d'événement prennent en charge cinq niveaux de gravité par ordre décroissant DE gravité : CRITIQUE, ERREUR, AVERTISSEMENT, INFORMATIONS et DÉBOGAGE 
+
+
+| `serverIp` | Chaîne | Aucune | Cette option répertorie les adresses IP ou noms d'hôte du serveur syslog distant. 
+
+
+| `port` | Integar | 514 | Cette option est le port du récepteur syslog distant. Cette option vous permet de configurer les récepteurs syslog pour qu'ils acceptent les datagrammes syslog sur un autre port. Le port UDP par défaut est 514. 
+|===
+
+IMPORTANT: Le `sanitize` l'option ne doit pas être spécifiée dans la configuration « syslog ». Cette option a un périmètre global et est commune à la journalisation, au journal des événements et au syslog dans la configuration JSON. Si vous définissez cette valeur sur « true », les informations sensibles des messages syslog postés sur le serveur syslog seront masquées.
+
+
+
+== Format des messages syslog
+
+Chaque message syslog envoyé au serveur syslog distant via UDP est formaté selon le format RFC 5424 pour NFS et SMB.
+
+Le tableau suivant indique le niveau de gravité selon RFC 5424 pris en charge pour les messages syslog pour XCP :
+
+|===
+| Valeurs de gravité | Niveau de gravité 
+
+
+| 3 | Erreur : conditions d'erreur 
+
+
+| 4 | Avertissement : conditions d'avertissement 
+
+
+| 6 | Information : messages d'information 
+
+
+| 7 | Débogage : messages de niveau débogage 
+|===
+Dans l'en-tête syslog pour NFS et SMB, version a une valeur de 1 et la valeur de fonction pour tous les messages pour XCP est définie sur 1 (messages de niveau utilisateur) :
+`<PRI> = syslog facility * 8 + severity value`
+
+.Format du message syslog de l'application XCP avec un en-tête syslog pour NFS :
+Le tableau suivant présente un modèle et un exemple de format de message syslog avec un en-tête syslog pour NFS :
+
+|===
+| Modèle | Exemple 
+
+
+ a| 
+`<PRI><version> <Time stamp> <hostname> xcp_nfs - - - <XCP message>`
+ a| 
+`<14>1 2020-07-08T06:30:34.341Z netapp xcp_nfs - - - INFO {"Event ID": 14,
+"Event Category": "XCP job status", "Event Type": "XCP scan completion",
+"Event Source": "netapp", "Description": "XCP scan is completed by scanning 8
+items"}`
+
+|===
+.Message d'application XCP sans en-tête syslog pour NFS
+Le tableau suivant présente un modèle et un exemple de format de message syslog sans en-tête syslog pour NFS :
+
+|===
+| Modèle | Exemple 
+
+
+ a| 
+`<message severity level i.e CRITICAL, ERROR, WARNING, INFO, DEBUG> <XCP event log message>`
+ a| 
+`INFO {"Event ID": 14, "Event Category": "XCP job status", "Event Type": "XCP scan completion", "Event Source": "netapp", "Description": "XCP scan is completed by scanning 8 items"}`
+
+|===
+.Format des messages syslog de l'application XCP avec en-tête syslog pour SMB
+Le tableau suivant présente un modèle et un exemple de format de message syslog avec un en-tête syslog pour SMB :
+
+|===
+| Modèle | Exemple 
+
+
+ a| 
+`<PRI><version> <Time stamp> <hostname> xcp_smb - - - <XCP message`
+ a| 
+`<14>1 2020-07-10T10:37:18.452Z bansala01 xcp_smb - - - INFO {"Event ID": 14, "Event Category": "XCP job status", "Event Type": "XCP scan completion", "Event Source": "NETAPP-01", "Description": "XCP scan is completed by scanning 17 items"}`
+
+|===
+.Message d'application XCP sans en-tête syslog pour SMB
+Le tableau suivant présente un modèle et un exemple de format de message syslog sans en-tête syslog pour SMB :
+
+|===
+| Modèle | Exemple 
+
+
+ a| 
+`<message severity level i.e CRITICAL, ERROR, WARNING, INFO, DEBUG> <XCP event log message>`
+ a| 
+`NFO {"Event ID": 14, "Event Category": "XCP job status", "Event Type": "XCP scan completion", "Event Source": "NETAPP-01", "Description": "XCP scan is completed by scanning 17items"}`
+
+|===

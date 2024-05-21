@@ -1,0 +1,108 @@
+---
+sidebar: sidebar 
+permalink: xcp-reference-logging-eventlog.html 
+keywords: netapp, xcp, reference, event, logging 
+summary: Journalisation XCP 
+---
+= Définissez l'option eventlog
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+XCP prend en charge la messagerie d'événement, que vous pouvez activer à l'aide de `eventlog` dans le `xcpLogConfig.json` Fichier de configuration JSON.
+
+Pour NFS, tous les messages d'événement sont écrits sur le `xcp_event.log` fichier situé à l'emplacement par défaut `/opt/NetApp/xFiles/xcp/` ou un emplacement personnalisé configuré à l'aide de la variable d'environnement suivante :
+
+`XCP_CONFIG_DIR`
+
+
+NOTE: Lorsque les deux emplacements sont définis, `XCP_LOG_DIR` est utilisé.
+
+Pour SMB, tous les messages d'événement sont écrits dans le fichier `xcp_event.log` situé à l'emplacement par défaut `C:\NetApp\XCP\`.
+
+
+
+== Configuration JSON pour la messagerie d'événement pour NFS et SMB
+
+Dans les exemples suivants, les fichiers de configuration JSON activent la messagerie d'événements pour NFS et SMB.
+
+.Exemple de fichier de configuration JSON avec l'option eventlog activée
+[listing]
+----
+{
+"eventlog": {
+"isEnabled": true,
+"level": "INFO"
+},
+"sanitize": false
+}
+----
+.Exemple de fichier de configuration JSON avec eventlog et autres options activées
+[listing]
+----
+{
+"logConfig": {
+"level": "INFO",
+"maxBytes": 52428800,
+"name": "xcp.log"
+},
+"eventlog": {
+"isEnabled": true,
+"level": "INFO"
+},
+"syslog": {
+"isEnabled": true,
+"level": "info",
+"serverIp": "10.101.101.10",
+"port": 514
+},
+"sanitize": false
+}
+----
+Le tableau suivant présente les sous-options eventlog et leur description :
+
+[cols="1,1,1,3"]
+|===
+| Sous-option | Type de données JSON | Valeur par défaut | Description 
+
+
+| `isEnabled` | Booléen | Faux | Cette option booléenne est utilisée pour activer la messagerie d'événement. Si elle est définie sur FALSE, elle ne génère aucun message d'événement et aucun journal d'événements n'est publié dans le fichier journal d'événements. 
+
+
+| `level` | Chaîne | INFO | Niveau de filtre de gravité du message d'événement. Les messages d'événement prennent en charge cinq niveaux de gravité par ordre décroissant DE gravité : CRITIQUE, ERREUR, AVERTISSEMENT, INFORMATIONS et DÉBOGAGE 
+|===
+.Modèle de message du journal des événements NFS
+Le tableau suivant présente un modèle et un exemple de message du journal des événements NFS :
+
+|===
+| Modèle | Exemple 
+
+
+ a| 
+`<Time stamp> - <Severity level> {"Event ID": <ID>, "Event
+Category":<category of xcp event log>, "Event Type": <type of event
+log>, "ExecutionId": < unique ID for each xcp command execution >,
+"Event Source": <host name>, "Description": <XCP event log message>}`
+ a| 
+`2020-07-14 07:07:07,286 - ERROR {"Event ID": 51, "Event Category":
+"Application failure", "Event Type": "No space left on destination
+error", " ExecutionId ": 408252316712, "Event Source": "NETAPP-01",
+"Description": "Target volume is left with no free space while executing
+: copy {}. Please increase the size of target volume
+10.101.101.101:/cat_vol"}`
+
+|===
+.Options de message eventlog
+Les options suivantes sont disponibles pour un message eventlog :
+
+* `Event ID`: Identifiant unique pour chaque message du journal des événements.
+* `Event Category`: Explique la catégorie de type d'événement et de message du journal des événements.
+* `Event Type`: Il s'agit d'une chaîne courte qui décrit le message d'événement. Plusieurs types d'événements peuvent appartenir à une catégorie.
+* `Description`: Le champ de description contient le message du journal des événements généré par XCP.
+* `ExecutionId`: Un identifiant unique pour chaque commande XCP exécutée.
+

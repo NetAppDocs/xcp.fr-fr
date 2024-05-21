@@ -2,9 +2,9 @@
 sidebar: sidebar 
 permalink: xcp-smb-ads.html 
 keywords: netapp, xcp, smb, ads, alternate, data, streams, ntfs 
-summary: Migration de flux de données de remplacement NTFS pour SMB 
+summary: 'NTFS : migration d"un volume de données alternatif pour SMB' 
 ---
-= Migration de flux de données de remplacement NTFS pour SMB
+= Migration de flux de données NTFS alternatif pour SMB
 :hardbreaks:
 :allow-uri-read: 
 :nofooter: 
@@ -14,13 +14,13 @@ summary: Migration de flux de données de remplacement NTFS pour SMB
 
 
 [role="lead"]
-À partir de XCP 1.9.3, XCP SMB prend en charge la migration de NTFS Alternate Data Streams (ADS) à l'aide de `-ads` Avec les commandes SMB XCP.
+À partir de XCP 1.9.3, XCP SMB prend en charge la migration de flux de données de remplacement NTFS à l'aide de `-ads` Avec les commandes SMB XCP.
 
 
 
 == Cas d'utilisation pris en charge
 
-Vous pouvez utiliser le SMB XCP `copy` et `sync` Commandes pour migrer des données qui incluent ADS et le SMB XCP `scan` Commande permettant de rechercher des ANNONCES DANS le partage SMB.
+Vous pouvez utiliser le SMB XCP `copy` et `sync` Commandes pour migrer des données qui incluent d'autres flux de données, et le SMB XCP `scan` Commande permettant d'analyser le partage SMB pour rechercher d'autres flux de données.
 
 
 

@@ -1,0 +1,169 @@
+---
+sidebar: sidebar 
+permalink: xcp-nfs-reference-chmod.html 
+keywords: netapp, xcp, reference, nfs, command, commands 
+summary: Référence de commande XCP NFS 
+---
+= chmod
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Le NFS XCP `chmod` la commande analyse et modifie l'autorisation de fichier de tous les fichiers pour la structure de répertoire donnée. La commande chmod requiert le mode ou la référence, le partage NFS ou le chemin POSIX comme variable. Le XCP `chmod` la commande modifie de manière récursive les autorisations pour un chemin donné. Le résultat de la commande affiche le total des fichiers analysés et les autorisations modifiées dans le résultat.
+
+.Syntaxe
+[source, cli]
+----
+xcp chmod -mode <value> <source NFS export path>
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chmod -mode <IP address>:/source_vol
+
+Xcp command : xcp chmod -mode <IP address>://source_vol
+Stats : 6 scanned, 4 changed mode
+Speed : 1.96 KiB in (2.13 KiB/s), 812 out (882/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux] #
+----
+====
+Le tableau suivant répertorie la `chmod` paramètres et leur description.
+
+[cols="2*"]
+|===
+| Paramètre | Description 
+
+
+| <<nfs_chmod_exclude,chmod -exclude  lt;filtre  gt;   | Exclut les fichiers et répertoires correspondant au filtre. 
+
+
+| <<nfs_chmod_match,chmod -match  lt;filtre  gt;   | Traite uniquement les fichiers et répertoires correspondant au filtre. 
+
+
+| <<nfs_chmod_reference,chmod -référence  >> | Spécifie le fichier ou le point de répertoire référencé. 
+
+
+| <<nfs_chmod_v,chmod -v >> | Indique la sortie de chaque objet traité. 
+|===
+
+
+== chmod -exclude <filter>
+
+Utilisez le `-exclude <filter>` paramètre avec le `chmod` pour exclure les fichiers et répertoires correspondant au filtre.
+
+.Syntaxe
+[source, cli]
+----
+xcp chmod -exclude <filter> -mode <value> <source NFS export path>
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chmod -exclude "fnm('3.img')" -mode 770 101.11.10.10:/s_v1/D3/
+
+Excluded: 1 excluded, 0 did not match exclude criteria
+Xcp command : xcp chmod -exclude fnm('3.img') -mode 770 101.11.10.10:/s_v1/D3/
+Stats : 5 scanned, 1 excluded, 5 changed mode
+Speed : 2.10 KiB in (7.55 KiB/s), 976 out (3.43 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== chmod -match <filter>
+
+Utilisez le `-match <filter>` paramètre avec le `chmod` pour traiter uniquement les fichiers et répertoires correspondant au filtre.
+
+.Syntaxe
+[source, cli]
+----
+xcp chmod -match <filter>  -mode <value> <source NFS export path>
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chmod -match "fnm('2.img')" -mode 777 101.11.10.10:/s_v1/D2/
+
+Filtered: 1 matched, 5 did not match
+Xcp command : xcp chmod -match fnm('2.img') -mode 101.11.10.10:/s_v1/D2/
+Stats : 6 scanned, 1 matched, 2 changed mode
+Speed : 1.67 KiB in (1.99 KiB/s), 484 out (578/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]
+----
+====
+
+
+== chmod -reference <reference>
+
+Utilisez le `-reference <reference>` paramètre avec le `chmod` pour spécifier le fichier référencé ou le point de répertoire.
+
+.Syntaxe
+[source, cli]
+----
+xcp chmod -reference <reference> <source NFS export path>
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chmod -reference 101.11.10.10:/s_v1/D1/1.txt 102.21.10.10:/s_v1/D2/
+
+Xcp command : xcp chmod -reference 101.11.10.10:/s_v1/D1/1.txt 102.21.10.10:/s_v1/D2/
+Stats : 6 scanned, 6 changed mode
+Speed : 3.11 KiB in (3.15 KiB/s), 1.98 KiB out (2.00 KiB/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====
+
+
+== chmod -v
+
+Utilisez le `-v` paramètre avec le `chmod` pour signaler la sortie de chaque objet traité.
+
+.Syntaxe
+[source, cli]
+----
+chmod -mode <value> -v <source NFS export path>
+----
+.Montrer l'exemple
+[%collapsible]
+====
+[listing]
+----
+[root@user-1 linux]# ./xcp chmod -mode 111 -v file:///mnt/s_v1/D1/
+
+mode of 'file:///mnt/s_v1/D1' changed from 0777 to 0111
+mode of 'file:///mnt/s_v1/D1/1.txt' changed from 0777 to 0111
+mode of 'file:///mnt/s_v1/D1/softlink_1.img' changed from 0777 to 0111
+mode of 'file:///mnt/s_v1/D1/softlink_to_hardlink_1.img' changed from 0777 to 0111 mode
+of 'file:///mnt/s_v1/D1/1.img' changed from 0777 to 0111
+mode of 'file:///mnt/s_v1/D1/hardlink_1.img' changed from 0777 to 0111 mode of
+'file:///mnt/s_v1/D1/1.img1' changed from 0777 to 0111
+Xcp command : xcp chmod -mode 111 -v file:///mnt/s_v1/D1/ Stats : 7 scanned, 7
+changed mode
+Speed : 0 in (0/s), 0 out (0/s)
+Total Time : 0s.
+STATUS : PASSED
+[root@user-1 linux]#
+----
+====

@@ -1,0 +1,35 @@
+---
+sidebar: sidebar 
+permalink: xcp-reference-logging-logconfig.html 
+keywords: netapp, xcp, reference, event, logging 
+summary: Journalisation XCP 
+---
+= Définissez l'option logConfig
+:hardbreaks:
+:allow-uri-read: 
+:nofooter: 
+:icons: font
+:linkattrs: 
+:imagesdir: ./media/
+
+
+[role="lead"]
+Pour en savoir plus sur l'option logConfig, consultez le `xcpLogConfig.json` Fichier de configuration JSON pour XCP NFS et SMB.
+
+L'exemple suivant montre le fichier de configuration JSON défini avec l'option « logConfig » :
+
+*Exemple*
+
+[listing]
+----
+{
+"level":"INFO",
+"maxBytes":"52428800",
+"name":"xcp.log"
+}
+----
+* Avec cette configuration, vous pouvez filtrer les messages en fonction de leur gravité en sélectionnant une valeur de niveau valide dans `CRITICAL`, `ERROR`, `WARNING`, `INFO`, et `Debug`.
+* Le `maxBytes` ce paramètre vous permet de modifier la taille du fichier des fichiers journaux rotatifs. La valeur par défaut est 50 Mo. La définition de la valeur sur 0 arrête la rotation et un seul fichier est créé pour tous les journaux.
+* Le `name` option configure le nom du fichier journal.
+* Si une paire de valeurs de clé est manquante, le système utilise la valeur par défaut. Si vous faites une erreur en spécifiant le nom d'une clé existante, elle est traitée comme une nouvelle clé et la nouvelle clé n'affecte pas le fonctionnement des systèmes ou la fonctionnalité du système.
+

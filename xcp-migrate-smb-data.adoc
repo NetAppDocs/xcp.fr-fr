@@ -29,7 +29,7 @@ NOTE: Pendant l'opération de copie, vous pouvez utiliser `-preserve-atime` avec
 
 [listing]
 ----
-C:\xcp>xcp copy \\<source SMB share> \\<destination SMB share>
+C:\xcp>xcp copy \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
 ----
 Courez `xcp help copy` pour en savoir plus.
 
@@ -48,7 +48,7 @@ NOTE: Pendant l'opération de synchronisation, vous pouvez utiliser le `-preserv
 
 [listing]
 ----
-C:\xcp>xcp sync \\<source SMB share> \\<destination SMB share>
+C:\xcp>xcp sync \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
 ----
 Courez `xcp help sync` pour en savoir plus.
 
@@ -67,6 +67,6 @@ Pendant l'opération de vérification, vous pouvez utiliser le `-preserve-atime`
 
 [listing]
 ----
-C:\xcp>xcp verify \\<source SMB share> \\<destination SMB share>
+C:\xcp>xcp verify \\<IP address or hostname of SMB server>\source_share \\<IP address of SMB destination server>\dest_share
 ----
 Courez `xcp help verify` pour en savoir plus.
