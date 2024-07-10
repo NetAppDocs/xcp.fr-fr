@@ -49,6 +49,9 @@ Les fonctionnalités suivantes ne sont pas prises en charge sur XCP SMB :
 | Nom de la fonction | Description 
 
 
+| Listes de contrôle d'accès NTFS tierces à NetApp | Le protocole SMB XCP ne prend pas en charge la migration de listes de contrôle d'accès tierces à partir de systèmes non-NetApp vers des systèmes NetApp. 
+
+
 | Lien symbolique NFS (symlink) | NFS symlink n'est pas pris en charge dans XCP SMB 
 
 
