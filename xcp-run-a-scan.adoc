@@ -110,7 +110,7 @@ NOTE: Pour obtenir le graphique du temps d'accès (atime) dans les acquisitions 
 
 === Taille du fichier : graphique accédé/modifié/créé
 
-image:xcp-filesize-amc.png[""]
+image:xcp-filesize-amc.png["Graphique illustrant la taille des fichiers modifiés au fil du temps"]
 
 Le graphique taille du fichier accédé/modifié/créé affiche la taille des fichiers modifiés au fil du temps. L'axe X représente la période pendant laquelle des modifications ont été apportées et l'axe y représente la taille des fichiers modifiés.
 
@@ -127,13 +127,13 @@ Le graphique distribution de fichiers par extension représente le nombre des di
 
 En outre, pour les partages SMB, vous pouvez obtenir le nombre de fichiers de flux de données secondaires pour chaque extension de fichier en cochant la case correspondant aux autres flux de données avant d'exécuter une analyse.
 
-image:xcp-file-distribution-ads.png[""]
+image:xcp-file-distribution-ads.png["Un graphique montrant comment obtenir le nombre de fichiers de flux de données alternatifs pour chaque extension de fichier dans XCP SMB"]
 
 
 
 === Distribution de taille de fichier par graphique d'extension
 
-image:xcp-filesize-dist-ex.png[""]
+image:xcp-filesize-dist-ex.png["Graphique montrant la taille cumulée des différentes extensions de fichier dans un partage de fichiers."]
 
 Le graphique distribution de taille de fichier par extension représente la taille cumulée des différentes extensions de fichier d'un partage de fichiers. La taille des divisions représentant les extensions est basée sur la taille des fichiers avec chaque extension.
 
@@ -154,4 +154,4 @@ Le graphique distribution par type représente le nombre des types de fichiers s
 
 En outre, pour les partages SMB, vous pouvez obtenir le nombre de fichiers de flux de données secondaires pour différents types en cochant la case correspondant aux autres flux de données avant d'exécuter une analyse.
 
-image:xcp-file-distribution-type.png[""]
+image:xcp-file-distribution-type.png["Un graphique montrant comment obtenir le nombre de fichiers de flux de données alternatifs pour différents types pour XCP SMB"]

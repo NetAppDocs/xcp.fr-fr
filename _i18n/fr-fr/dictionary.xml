@@ -642,7 +642,6 @@
   <block id="e2d6471d3d51e8bf2d4aa734bd07e4ed" category="cell">L'espace total d'un système de fichiers exporté sur un serveur de fichiers donné peut afficher plus d'espace que le stockage physique alloué.</block>
   <block id="ec0bc824851831e651eff319ac6be069" category="cell">Cela peut se produire lors d'exportations de niveau qtree à l'intérieur du volume. Par exemple, si la taille du volume exportée en tant que<block ref="6bea0265c2d6a283484ef8931c960069" prefix=" " category="inline-code"></block> Est de 10 Go et il y a un qtree dans le volume<block ref="30c5e1c088a31e33442805ee203e4409" prefix=" " category="inline-code"></block>, puis le<block ref="b28233b6c0fdcbe5d1e403bc2be8f960" prefix=" " category="inline-code"></block> affiche la commande<block ref="2b0d59c7031769e80c8e5118b6ec7694" prefix=" " category="inline-code"></block> taille as<block ref="fd0af2e21c3a24ee7fcb3052afbb5fbd" prefix=" " category="inline-code"></block> et le<block ref="dbe4a9175454a2e6407d2285b9abe017" prefix=" " category="inline-code"></block> taille as<block ref="fd0af2e21c3a24ee7fcb3052afbb5fbd" prefix=" " category="inline-code"></block>. XCP File Analytics résume l'espace des deux exportations et donne l'espace total, dans ce cas,<block ref="3a6d03856b824be771cdd922375d59db" prefix=" " category="inline-code"></block>. Il ne comprend pas cela<block ref="dbe4a9175454a2e6407d2285b9abe017" prefix=" " category="inline-code"></block> est un espace logique.</block>
   <block id="dc3e4b78f385d96eee62d48189bd45ed" category="summary">Étapes de configuration du fichier INI XCP</block>
-  <block id="27844988f363a5f923e9334ae145a1fd" category="doc">Configurez le fichier INI</block>
   <block id="29c2f1feeb1231581bf05d60a3d62a9a" category="paragraph">Étapes de configuration du fichier INI pour XCP.</block>
   <block id="586dba64773da8695bdac99be604919f" category="section-title">Configurez le fichier INI pour un utilisateur racine</block>
   <block id="21ee12acf8b4df5f11e93b279367513a" category="paragraph">Vous pouvez utiliser la procédure suivante pour configurer le fichier INI pour un utilisateur racine XCP NFS.</block>
@@ -877,14 +876,10 @@ Référence : <block ref="47c554f6b2ce744e50a1b2318fbe4ec3" category="inline-lin
   <block id="269e3fa15ca9366f6cfcb1eac97c6cf0" category="paragraph">Courez<block ref="1a1b0d47f4e6e0151b4df12640fe4bb0" prefix=" " category="inline-code"></block> pour en savoir plus.</block>
   <block id="ea7072dd30b8128f4d74568ed70d406c" category="paragraph">Le graphique fichiers consultés/modifiés/créés affiche le nombre de fichiers modifiés au fil du temps. L'axe X représente la période pendant laquelle des modifications ont été apportées et l'axe y représente le nombre de fichiers modifiés.</block>
   <block id="e66cb3e85cec55480dc46a379124f46a" category="section-title">Taille du fichier : graphique accédé/modifié/créé</block>
-  <block id="5eeb433a134b50fcf2d2d02005945304" category="paragraph"><block ref="5eeb433a134b50fcf2d2d02005945304" category="inline-image-macro-rx" type="image"></block></block>
   <block id="b483a26f1bc7e903df1139b2bea4faca" category="paragraph">Le graphique taille du fichier accédé/modifié/créé affiche la taille des fichiers modifiés au fil du temps. L'axe X représente la période pendant laquelle des modifications ont été apportées et l'axe y représente la taille des fichiers modifiés.</block>
   <block id="8105201d67059c07d533dcbbe25a3c67" category="section-title">Distribution de fichiers par graphique d'extension</block>
-  <block id="699e5e6ac0568498b21221ee949dd4a3" category="paragraph"><block ref="699e5e6ac0568498b21221ee949dd4a3" category="inline-image-macro-rx" type="image"></block></block>
   <block id="79f475897ad3ccfba85aa2fc2f2d9bad" category="section-title">Distribution de taille de fichier par graphique d'extension</block>
-  <block id="4ab3fb97b389232d625b03e49824e147" category="paragraph"><block ref="4ab3fb97b389232d625b03e49824e147" category="inline-image-macro-rx" type="image"></block></block>
   <block id="a07e34309c0f4fe3914143661296e902" category="paragraph">Le graphique distribution de taille de fichier par extension représente la taille cumulée des différentes extensions de fichier d'un partage de fichiers. La taille des divisions représentant les extensions est basée sur la taille des fichiers avec chaque extension.</block>
-  <block id="fa089a630122acf5e9273fce49f4cf34" category="paragraph"><block ref="fa089a630122acf5e9273fce49f4cf34" category="inline-image-macro-rx" type="image"></block></block>
   <block id="0c298119c26e2b6846ed04c0a3a19fc9" category="paragraph">Courez<block ref="0b0f856b03e3ddcd7804298ac5bc4a97" prefix=" " category="inline-code"></block> pour en savoir plus.</block>
   <block id="1b8208be7fabaa97780c143eb5ae291e" category="paragraph">Courez<block ref="dc7a0e5e50a6e16de630993f68e9061c" prefix=" " category="inline-code"></block> pour en savoir plus.</block>
   <block id="b802ccf3bd2b24d676e6542534797831" category="paragraph">Courez<block ref="7aaf8f3c0f52b0fd5a97d37fbe81d5c5" prefix=" " category="inline-code"></block> pour en savoir plus.</block>
@@ -2216,4 +2211,15 @@ système.</block>
   <block id="d00c1e93acb215a134bcc17a6aafed7e" category="paragraph"><block ref="d00c1e93acb215a134bcc17a6aafed7e" category="inline-image-macro-rx" type="image"></block></block>
   <block id="e53491994f0709110c81f65b9c6dcbf5" category="cell">Listes de contrôle d'accès NTFS tierces à NetApp</block>
   <block id="0ce0e45a25c05fb4a79ccca92ab31b0a" category="cell">Le protocole SMB XCP ne prend pas en charge la migration de listes de contrôle d'accès tierces à partir de systèmes non-NetApp vers des systèmes NetApp.</block>
+  <block id="1300bd8e2d36b2d26dd0d4054937f9b7" category="admonition">Le fichier INI XCP n'est pas requis dans le SMB XCP.</block>
+  <block id="cfd8dd3ece7e01985a0c3284a9784c66" category="inline-image-macro">Graphique illustrant la taille des fichiers modifiés au fil du temps</block>
+  <block id="6892c40e78a41a89c3e977071754228f" category="paragraph"><block ref="6892c40e78a41a89c3e977071754228f" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="23cc9fe9e052a539bfb7f4050d5cbc0c" category="inline-image-macro">Un graphique montrant comment obtenir le nombre de fichiers de flux de données alternatifs pour chaque extension de fichier dans XCP SMB</block>
+  <block id="38a84eabbe5af8a7b5f98fac70ba57da" category="paragraph"><block ref="38a84eabbe5af8a7b5f98fac70ba57da" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="0ddb9db6b0a28f38a95e40d7cf8eb8cb" category="inline-image-macro">Graphique montrant la taille cumulée des différentes extensions de fichier dans un partage de fichiers.</block>
+  <block id="3364e1b19026788a2e58a0d78550ffc5" category="paragraph"><block ref="3364e1b19026788a2e58a0d78550ffc5" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="4a19e5a58f92d23fde8fba05519926e6" category="inline-image-macro">Un graphique montrant comment obtenir le nombre de fichiers de flux de données alternatifs pour différents types pour XCP SMB</block>
+  <block id="92420eba0222a4b23e712f8973ef3bc8" category="paragraph"><block ref="92420eba0222a4b23e712f8973ef3bc8" category="inline-image-macro-rx" type="image"></block></block>
+  <block id="19699e63b68566e37c15a09d5b8fa402" category="sidebar">Documentation de l'XCP</block>
+  <block id="3b878279a04dc47d60932cb294d96259" category="sidebar">Présentation</block>
 </blocks>
