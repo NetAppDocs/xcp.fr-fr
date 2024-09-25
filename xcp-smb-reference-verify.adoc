@@ -79,8 +79,7 @@ Le tableau suivant répertorie la `verify` paramètres et leur description.
 | <<vérifier -noownership>> | Ne vérifiez pas la propriété. 
 
 
-| <<vérifier -ads>> | Analysez les modifications des autres flux de données dans les partages SMB source et cible. S'il y a des modifications, il applique la modification à la cible à
-assurez-vous que la cible est identique à la source. 
+| <<vérifier -ads>> | La `verify` commande associée au `-ads` paramètre recherche tout autre flux de données sur la source et la destination et affiche les différences éventuelles. 
 
 
 | <<vérifiez -noacls>> | Ne vérifiez pas les listes de contrôle d'accès. 
@@ -110,10 +109,10 @@ assurez-vous que la cible est identique à la source.
 | <<verify_smb_acl,vérifier -fallback-group  >> | Groupe Active Directory ou groupe local (non-domaine) sur la machine cible pour recevoir les autorisations des groupes de machines sources locaux (non-domaine) (par exemple : domaine\administrateurs). 
 
 
-| <<smb_verify_root,vérifiez -root>> | Synchronisez les listes de contrôle d'accès pour le répertoire racine. 
+| <<smb_verify_root,vérifiez -root>> | Vérifiez les listes de contrôle d'accès pour le répertoire racine. 
 
 
-| <<verify_smb_onlyacl,vérifier -onlyacl>> | Copiez uniquement les informations de sécurité. 
+| <<verify_smb_onlyacl,vérifier -onlyacl>> | Vérifiez uniquement les informations de sécurité. 
 |===
 
 
@@ -477,7 +476,7 @@ STATUS : PASSED
 
 == vérifier -ads
 
-À l'aide de `-ads` paramètre avec le `verify` pour lire s'il existe d'autres flux de données sur la source et la destination et afficher les différences éventuelles.
+Utilisez le `-ads` paramètre avec la `verify` commande pour vérifier s'il existe d'autres flux de données sur la source et la destination et afficher les différences éventuelles.
 
 .Syntaxe
 [source, cli]
@@ -774,7 +773,7 @@ xcp verify -noacls -fallback-user <fallback_user> -fallback-group <fallback_grou
 
 == vérifiez -root
 
-Utilisez le `-root` paramètre avec le `verify` Commande permettant de synchroniser les ACL du répertoire racine.
+Utilisez le `-root` paramètre associé à la `verify` commande pour vérifier les ACL du répertoire racine.
 
 .Syntaxe
 [source, cli]
