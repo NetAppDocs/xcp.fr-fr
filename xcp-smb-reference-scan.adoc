@@ -614,6 +614,9 @@ STATUS : PASSED
 
 Utilisez le `-stats` paramètre avec le `scan` commande permettant de répertorier les fichiers dans un format de rapport de statistiques d'arborescence.
 
+
+NOTE: L'option -stats imprime un rapport lisible sur la console. Les autres options de format de rapport sont -html ou -csv. Le format CSV (valeurs séparées par des virgules) possède des valeurs exactes. Si un catalogue existe, les rapports CSV et HTML sont automatiquement enregistrés dans le catalogue.
+
 .Syntaxe
 [source, cli]
 ----

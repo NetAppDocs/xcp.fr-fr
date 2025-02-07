@@ -199,9 +199,13 @@ STATUS : PASSED
 
 Utilisez le `-stats`, `-csv`, et `-html` paramètres avec le `scan` commande permettant de répertorier les fichiers au format de rapport statistique de l'arborescence.
 
+[NOTE]
+====
+* L' `-stats`option imprime un rapport lisible sur la console. Les autres options de format de rapport sont `-html` ou `-csv`. Le format CSV (valeurs séparées par des virgules) possède des valeurs exactes. Si un catalogue existe, les rapports CSV et HTML sont automatiquement enregistrés dans le catalogue.
+* Les rapports XCP (.csv, .html) sont enregistrés dans l'emplacement de catalogue spécifié dans `xcp.ini` le fichier. Les fichiers sont stockés dans le `<catalog path>/catalog/indexes/1/reports` dossier. Vous pouvez afficher des exemples de rapports dans le link:https://library.netapp.com/ecm/ecm_download_file/ECMLP2886872["Référence NetApp XCP 1.9.3"^].
 
-NOTE: Les rapports XCP (.csv, .html) sont enregistrés dans l'emplacement de catalogue spécifié dans le `xcp.ini` fichier. Les fichiers sont stockés dans le `<catalog path>/catalog/indexes/1/reports` dossier. Vous pouvez afficher des exemples de rapports dans l'annexe.
 
+====
 .Syntaxe
 [source, cli]
 ----
